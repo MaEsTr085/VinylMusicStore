@@ -41,7 +41,7 @@ namespace VinylMusicStore.Forms
         {
             for (int i = 0; i < albums.Count; i++)
             {
-                labels = albumsFromDB.GetLabelsForAlbum(albums[i]);
+                labels = albumsFromDB.GetLabelsForAlbumNoZero(albums[i]);
                 if (labels.Count == 0)
                     albums.Remove(albums[i]);
             }
@@ -54,7 +54,7 @@ namespace VinylMusicStore.Forms
             cbLabel.Items.Clear();
             cbLabel.Text = String.Empty;
 
-            labels = albumsFromDB.GetLabelsForAlbum(cbAlbum.Text);
+            labels = albumsFromDB.GetLabelsForAlbumNoZero(cbAlbum.Text);
             cbLabel.Items.AddRange(labels.ToArray());
         }
 
@@ -125,8 +125,23 @@ namespace VinylMusicStore.Forms
             }
             else
             {
-                ReceiptForm receiptForm = new ReceiptForm(lblFullSum.Text);
+                int[,] values = new int[dgvReceipt.RowCount, 2];
+                for (int i = 0; i < dgvReceipt.RowCount; i++)
+                {
+                    int id = 0;
+                    for (int j = 0; j < MainForm.albums.Count; j++)
+                    {
+                        if (MainForm.albums[j].AlbumName == cbAlbum.Text && MainForm.albums[j].Label == cbLabel.Text)
+                            id = MainForm.albums[j].IdAlbum;
+                    }
+                    values[i, 0] = id;
+                    values[i, 1] = int.Parse(dgvReceipt[2, i].Value.ToString());
+                }
+                    
+                    
+                ReceiptForm receiptForm = new ReceiptForm(lblFullSum.Text, values, dgvReceipt.RowCount);
                 receiptForm.ShowDialog();
+                this.Close();
             }
         }
 

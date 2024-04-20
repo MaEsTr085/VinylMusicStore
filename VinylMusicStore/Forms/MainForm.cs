@@ -89,5 +89,16 @@ namespace VinylMusicStore
             CreateReceiptForm createReceiptForm = new CreateReceiptForm();
             createReceiptForm.Show();
         }
+
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            GetAlbums();
+        }
+
+        private void ToolStripMenuItemSupply_Click(object sender, EventArgs e)
+        {
+            SupplyForm supplyForm = new SupplyForm();
+            supplyForm.Show();
+        }
     }
 }

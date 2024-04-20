@@ -58,6 +58,7 @@
             // dgvReceipt
             // 
             this.dgvReceipt.AllowUserToAddRows = false;
+            this.dgvReceipt.AllowUserToDeleteRows = false;
             this.dgvReceipt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReceipt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReceipt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -65,12 +66,12 @@
             this.Label,
             this.Count,
             this.Price});
-            this.dgvReceipt.Location = new System.Drawing.Point(357, 9);
-            this.dgvReceipt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvReceipt.Location = new System.Drawing.Point(476, 11);
+            this.dgvReceipt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvReceipt.Name = "dgvReceipt";
             this.dgvReceipt.RowHeadersWidth = 51;
             this.dgvReceipt.RowTemplate.Height = 24;
-            this.dgvReceipt.Size = new System.Drawing.Size(332, 364);
+            this.dgvReceipt.Size = new System.Drawing.Size(443, 448);
             this.dgvReceipt.TabIndex = 0;
             // 
             // Album
@@ -106,74 +107,70 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(68, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(91, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.Size = new System.Drawing.Size(144, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Добавление состава";
             // 
             // cbAlbum
             // 
             this.cbAlbum.FormattingEnabled = true;
-            this.cbAlbum.Location = new System.Drawing.Point(111, 41);
-            this.cbAlbum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbAlbum.Location = new System.Drawing.Point(148, 50);
+            this.cbAlbum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbAlbum.Name = "cbAlbum";
-            this.cbAlbum.Size = new System.Drawing.Size(92, 21);
+            this.cbAlbum.Size = new System.Drawing.Size(121, 24);
             this.cbAlbum.TabIndex = 2;
             this.cbAlbum.SelectedIndexChanged += new System.EventHandler(this.cbAlbum_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 43);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(67, 53);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.Size = new System.Drawing.Size(56, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Альбом";
             // 
             // cbLabel
             // 
             this.cbLabel.FormattingEnabled = true;
-            this.cbLabel.Location = new System.Drawing.Point(111, 83);
-            this.cbLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbLabel.Location = new System.Drawing.Point(148, 102);
+            this.cbLabel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbLabel.Name = "cbLabel";
-            this.cbLabel.Size = new System.Drawing.Size(92, 21);
+            this.cbLabel.Size = new System.Drawing.Size(121, 24);
             this.cbLabel.TabIndex = 2;
             this.cbLabel.SelectedIndexChanged += new System.EventHandler(this.cbLabel_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(56, 85);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(75, 105);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.Size = new System.Drawing.Size(48, 16);
             this.label3.TabIndex = 1;
             this.label3.Text = "Лейбл";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 124);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(37, 153);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.Size = new System.Drawing.Size(85, 16);
             this.label4.TabIndex = 1;
             this.label4.Text = "Количество";
             // 
             // numCount
             // 
-            this.numCount.Location = new System.Drawing.Point(111, 124);
-            this.numCount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numCount.Location = new System.Drawing.Point(148, 153);
+            this.numCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numCount.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numCount.Name = "numCount";
-            this.numCount.Size = new System.Drawing.Size(91, 20);
+            this.numCount.Size = new System.Drawing.Size(121, 22);
             this.numCount.TabIndex = 4;
             this.numCount.Value = new decimal(new int[] {
             1,
@@ -185,10 +182,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(71, 171);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(95, 210);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 26);
+            this.label5.Size = new System.Drawing.Size(77, 32);
             this.label5.TabIndex = 1;
             this.label5.Text = "Стоимость\r\nальбома";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -196,19 +192,18 @@
             // lblAlbumPrice
             // 
             this.lblAlbumPrice.AutoSize = true;
-            this.lblAlbumPrice.Location = new System.Drawing.Point(137, 178);
-            this.lblAlbumPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAlbumPrice.Location = new System.Drawing.Point(183, 219);
             this.lblAlbumPrice.Name = "lblAlbumPrice";
-            this.lblAlbumPrice.Size = new System.Drawing.Size(13, 13);
+            this.lblAlbumPrice.Size = new System.Drawing.Size(14, 16);
             this.lblAlbumPrice.TabIndex = 1;
             this.lblAlbumPrice.Text = "0";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(71, 258);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Location = new System.Drawing.Point(95, 318);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(110, 36);
+            this.btnAdd.Size = new System.Drawing.Size(147, 44);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Добавить";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -216,10 +211,10 @@
             // 
             // btnDel
             // 
-            this.btnDel.Location = new System.Drawing.Point(464, 416);
-            this.btnDel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDel.Location = new System.Drawing.Point(619, 512);
+            this.btnDel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(140, 41);
+            this.btnDel.Size = new System.Drawing.Size(187, 50);
             this.btnDel.TabIndex = 5;
             this.btnDel.Text = "Удалить строку";
             this.btnDel.UseVisualStyleBackColor = true;
@@ -227,10 +222,10 @@
             // 
             // btnCreateReceipt
             // 
-            this.btnCreateReceipt.Location = new System.Drawing.Point(77, 410);
-            this.btnCreateReceipt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCreateReceipt.Location = new System.Drawing.Point(103, 505);
+            this.btnCreateReceipt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreateReceipt.Name = "btnCreateReceipt";
-            this.btnCreateReceipt.Size = new System.Drawing.Size(169, 53);
+            this.btnCreateReceipt.Size = new System.Drawing.Size(225, 65);
             this.btnCreateReceipt.TabIndex = 5;
             this.btnCreateReceipt.Text = "Создать чек";
             this.btnCreateReceipt.UseVisualStyleBackColor = true;
@@ -239,20 +234,18 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(88, 380);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(117, 468);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(88, 13);
+            this.label9.Size = new System.Drawing.Size(110, 16);
             this.label9.TabIndex = 1;
             this.label9.Text = "Сумма к оплате";
             // 
             // lblFullSum
             // 
             this.lblFullSum.AutoSize = true;
-            this.lblFullSum.Location = new System.Drawing.Point(175, 380);
-            this.lblFullSum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFullSum.Location = new System.Drawing.Point(233, 468);
             this.lblFullSum.Name = "lblFullSum";
-            this.lblFullSum.Size = new System.Drawing.Size(13, 13);
+            this.lblFullSum.Size = new System.Drawing.Size(14, 16);
             this.lblFullSum.TabIndex = 1;
             this.lblFullSum.Text = "0";
             // 
@@ -270,46 +263,44 @@
             this.groupBox1.Controls.Add(this.lblAlbumPrice);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(43, 32);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(57, 39);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(261, 315);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(348, 388);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
             // lblSum
             // 
             this.lblSum.AutoSize = true;
-            this.lblSum.Location = new System.Drawing.Point(137, 221);
-            this.lblSum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSum.Location = new System.Drawing.Point(183, 272);
             this.lblSum.Name = "lblSum";
-            this.lblSum.Size = new System.Drawing.Size(13, 13);
+            this.lblSum.Size = new System.Drawing.Size(14, 16);
             this.lblSum.TabIndex = 1;
             this.lblSum.Text = "0";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(71, 221);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(95, 272);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 13);
+            this.label6.Size = new System.Drawing.Size(77, 16);
             this.label6.TabIndex = 1;
             this.label6.Text = "Стоимость";
             // 
             // CreateReceiptForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 484);
+            this.ClientSize = new System.Drawing.Size(940, 596);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnCreateReceipt);
             this.Controls.Add(this.lblFullSum);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dgvReceipt);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CreateReceiptForm";
             this.Text = "Составление чека";
             this.Load += new System.EventHandler(this.CreateReceiptForm_Load);

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MessagingToolkit.QRCode.Codec;
 using MessagingToolkit.QRCode.Codec.Data;
+using VinylMusicStore.Classes;
 using VinylMusicStore.Model;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -17,14 +18,20 @@ namespace VinylMusicStore.Forms
     public partial class ReceiptForm : Form
     {
         UsersFromDB usersFromDB = new UsersFromDB();
+        ReceiptsFromDB receiptsFromDB = new ReceiptsFromDB();
+        AlbumsFromDB albumsFromDB = new AlbumsFromDB();
         Random rnd = new Random();
 
         private string fullSum;
+        int[,] values;
+        int count = 0;
 
-        public ReceiptForm(string fullSum)
+        public ReceiptForm(string fullSum, int[,] values, int count)
         {
             InitializeComponent();
             this.fullSum = fullSum;
+            this.values = values;
+            this.count = count;
         }
 
         public ReceiptForm()
@@ -48,11 +55,14 @@ namespace VinylMusicStore.Forms
 
         private void ReceiptForm_Load(object sender, EventArgs e)
         {
+            int maxNum = receiptsFromDB.GetMaxReceiptNum();
+            lblReceiptNum.Text = maxNum.ToString();
+
             GenerateRequisite();
 
             lblSum.Text = fullSum;
 
-            lblEmployee.Text = usersFromDB.GetUserById(AuthForm.currentUser.UserId);
+            lblEmployee.Text = usersFromDB.GetUserById(AuthForm.currentUser.Employee);
 
             lblDateTime.Text = DateTime.Now.ToString();
 
@@ -78,15 +88,45 @@ namespace VinylMusicStore.Forms
             for (int i = 0; i < 16; i++)
                 FN += rnd.Next(0, 10).ToString();
 
+            while (FN[0] == '0')
+            {
+                FN = "";
+                for (int i = 0; i < 16; i++)
+                    FN += rnd.Next(0, 10).ToString();
+            }
+
             for (int i = 0; i < 10; i++)
                 FD += rnd.Next(0, 10).ToString();
+
+            while (FD[0] == '0')
+            {
+                FD = "";
+                for (int i = 0; i < 10; i++)
+                    FD += rnd.Next(0, 10).ToString();
+            }
 
             for (int i = 0; i < 10; i++)
                 FPD += rnd.Next(0, 10).ToString();
 
+            while (FPD[0] == '0')
+            {
+                FPD = "";
+                for (int i = 0; i < 10; i++)
+                    FPD += rnd.Next(0, 10).ToString();
+            }
+
             lblFN.Text = FN;
             lblFD.Text = FD;
             lblFPD.Text = FPD;
+        }
+
+        private void btnAddInDB_Click(object sender, EventArgs e)
+        {
+            int employee = receiptsFromDB.GetEmployeeID(lblEmployee.Text);
+            Receipt receipt = new Receipt(int.Parse(lblReceiptNum.Text), lblDateTime.Text, double.Parse(lblSum.Text), employee, lblFN.Text, lblFD.Text, lblFPD.Text);
+
+            receiptsFromDB.CreateReceipt(receipt, values, count);
+            this.Close();
         }
     }
 }

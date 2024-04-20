@@ -75,6 +75,39 @@ namespace VinylMusicStore.Model
             }
         }
 
+        public List<string> GetLabelsForAlbumNoZero(string album)
+        {
+            List<string> labels = new List<string>();
+
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(DBConnection.connectionStr))
+                {
+                    connection.Open();
+                    string sqlQuery = "select * from public.get_labels_for_album_no_zero(@album)";
+                    NpgsqlCommand command = new NpgsqlCommand(sqlQuery, connection);
+                    command.Parameters.AddWithValue("@album", album);
+                    NpgsqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            labels.Add(reader[0].ToString());
+                        }
+                        return labels;
+                    }
+                    reader.Close();
+                    return labels;
+                }
+            }
+            catch (NpgsqlException e)
+            {
+                MessageBox.Show(e.Message);
+                return labels;
+            }
+        }
+
         public List<string> GetLabelsForAlbum(string album)
         {
             List<string> labels = new List<string>();

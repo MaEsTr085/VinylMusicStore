@@ -139,6 +139,12 @@
     <Compile Include="Forms\RegForm.Designer.cs">
       <DependentUpon>RegForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SupplyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SupplyForm.Designer.cs">
+      <DependentUpon>SupplyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TracksForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,7 @@
     </Compile>
     <Compile Include="Model\AlbumsFromDB.cs" />
     <Compile Include="Model\DBConnection.cs" />
+    <Compile Include="Model\ReceiptsFromDB.cs" />
     <Compile Include="Model\TracksFromDB.cs" />
     <Compile Include="Model\UsersFromDB.cs" />
     <Compile Include="Program.cs" />
@@ -168,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RegForm.resx">
       <DependentUpon>RegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SupplyForm.resx">
+      <DependentUpon>SupplyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TracksForm.resx">
       <DependentUpon>TracksForm.cs</DependentUpon>

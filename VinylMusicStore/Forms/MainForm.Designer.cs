@@ -45,6 +45,7 @@
             this.чекToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemCreateReceipt = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemViewReceips = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemSupply = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlbums)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlbum)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -65,10 +66,11 @@
             this.YearOfRelease,
             this.Genre,
             this.AlbumImage});
-            this.dgvAlbums.Location = new System.Drawing.Point(12, 56);
+            this.dgvAlbums.Location = new System.Drawing.Point(16, 69);
+            this.dgvAlbums.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvAlbums.Name = "dgvAlbums";
             this.dgvAlbums.RowHeadersWidth = 51;
-            this.dgvAlbums.Size = new System.Drawing.Size(540, 353);
+            this.dgvAlbums.Size = new System.Drawing.Size(720, 434);
             this.dgvAlbums.TabIndex = 0;
             this.dgvAlbums.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlbums_CellClick);
             this.dgvAlbums.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlbums_CellDoubleClick);
@@ -132,9 +134,10 @@
             // 
             // pbAlbum
             // 
-            this.pbAlbum.Location = new System.Drawing.Point(602, 56);
+            this.pbAlbum.Location = new System.Drawing.Point(803, 69);
+            this.pbAlbum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlbum.Name = "pbAlbum";
-            this.pbAlbum.Size = new System.Drawing.Size(192, 208);
+            this.pbAlbum.Size = new System.Drawing.Size(256, 256);
             this.pbAlbum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAlbum.TabIndex = 1;
             this.pbAlbum.TabStop = false;
@@ -145,25 +148,26 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemTracks,
             this.пользовательToolStripMenuItem,
-            this.чекToolStripMenuItem});
+            this.чекToolStripMenuItem,
+            this.ToolStripMenuItemSupply});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(845, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1127, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // ToolStripMenuItemTracks
             // 
             this.ToolStripMenuItemTracks.Name = "ToolStripMenuItemTracks";
-            this.ToolStripMenuItemTracks.Size = new System.Drawing.Size(51, 20);
+            this.ToolStripMenuItemTracks.Size = new System.Drawing.Size(64, 24);
             this.ToolStripMenuItemTracks.Text = "Треки";
             this.ToolStripMenuItemTracks.Click += new System.EventHandler(this.ToolStripMenuItemTracks_Click);
             // 
             // пользовательToolStripMenuItem
             // 
             this.пользовательToolStripMenuItem.Name = "пользовательToolStripMenuItem";
-            this.пользовательToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.пользовательToolStripMenuItem.Size = new System.Drawing.Size(121, 24);
             this.пользовательToolStripMenuItem.Text = "Пользователь";
             // 
             // чекToolStripMenuItem
@@ -172,33 +176,42 @@
             this.ToolStripMenuItemCreateReceipt,
             this.ToolStripMenuItemViewReceips});
             this.чекToolStripMenuItem.Name = "чекToolStripMenuItem";
-            this.чекToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.чекToolStripMenuItem.Size = new System.Drawing.Size(48, 24);
             this.чекToolStripMenuItem.Text = "Чек";
             // 
             // ToolStripMenuItemCreateReceipt
             // 
             this.ToolStripMenuItemCreateReceipt.Name = "ToolStripMenuItemCreateReceipt";
-            this.ToolStripMenuItemCreateReceipt.Size = new System.Drawing.Size(177, 22);
+            this.ToolStripMenuItemCreateReceipt.Size = new System.Drawing.Size(221, 26);
             this.ToolStripMenuItemCreateReceipt.Text = "Создать чек";
             this.ToolStripMenuItemCreateReceipt.Click += new System.EventHandler(this.ToolStripMenuItemCreateReceipt_Click);
             // 
             // ToolStripMenuItemViewReceips
             // 
             this.ToolStripMenuItemViewReceips.Name = "ToolStripMenuItemViewReceips";
-            this.ToolStripMenuItemViewReceips.Size = new System.Drawing.Size(177, 22);
+            this.ToolStripMenuItemViewReceips.Size = new System.Drawing.Size(221, 26);
             this.ToolStripMenuItemViewReceips.Text = "Просмотреть чеки";
+            // 
+            // ToolStripMenuItemSupply
+            // 
+            this.ToolStripMenuItemSupply.Name = "ToolStripMenuItemSupply";
+            this.ToolStripMenuItemSupply.Size = new System.Drawing.Size(88, 24);
+            this.ToolStripMenuItemSupply.Text = "Поставки";
+            this.ToolStripMenuItemSupply.Click += new System.EventHandler(this.ToolStripMenuItemSupply_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 450);
+            this.ClientSize = new System.Drawing.Size(1127, 554);
             this.Controls.Add(this.pbAlbum);
             this.Controls.Add(this.dgvAlbums);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.Text = "Магазин Винила";
+            this.Activated += new System.EventHandler(this.MainForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlbums)).EndInit();
@@ -229,6 +242,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn YearOfRelease;
         private System.Windows.Forms.DataGridViewTextBoxColumn Genre;
         private System.Windows.Forms.DataGridViewImageColumn AlbumImage;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSupply;
     }
 }
 
