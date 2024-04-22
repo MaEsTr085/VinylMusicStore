@@ -51,7 +51,7 @@ namespace VinylMusicStore
         private void GetAlbums()
         {
             albums = albumsFromDB.GetAlbums();
-            dgvAlbums.DataSource = albums;
+            dgvAlbums.DataSource = albums;                
         }
 
         private void dgvAlbums_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -99,6 +99,17 @@ namespace VinylMusicStore
         {
             SupplyForm supplyForm = new SupplyForm();
             supplyForm.Show();
+        }
+
+        private void dgvAlbums_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var hti = dgvAlbums.HitTest(e.X, e.Y);
+                dgvAlbums.ClearSelection();
+                dgvAlbums.Rows[hti.RowIndex].Selected = true;
+                MessageBox.Show(dgvAlbums.CurrentRow.Index.ToString());
+            }
         }
     }
 }

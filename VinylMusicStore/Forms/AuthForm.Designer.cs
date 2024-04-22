@@ -51,6 +51,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(157, 22);
             this.tbPassword.TabIndex = 1;
+            this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPassword_KeyDown);
             // 
             // btnAuth
             // 
@@ -86,6 +87,7 @@
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(157, 22);
             this.tbLogin.TabIndex = 1;
+            this.tbLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbLogin_KeyDown);
             // 
             // AuthForm
             // 

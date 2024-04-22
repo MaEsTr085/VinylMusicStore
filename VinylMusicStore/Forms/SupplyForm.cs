@@ -56,7 +56,8 @@ namespace VinylMusicStore.Forms
 
         private void btnAddNewAlbum_Click(object sender, EventArgs e)
         {
-
+            AddNewAlbumForm addNewAlbumForm = new AddNewAlbumForm();
+            addNewAlbumForm.ShowDialog();
         }
 
         private void cbAlbum_SelectedIndexChanged(object sender, EventArgs e)

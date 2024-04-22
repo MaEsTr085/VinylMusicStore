@@ -46,5 +46,21 @@ namespace VinylMusicStore.Forms
                 }
             }
         }
+
+        private void tbLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tbPassword.Focus();
+            }
+        }
+
+        private void tbPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnAuth.Focus();
+            }
+        }
     }
 }

@@ -28,7 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvAlbums = new System.Windows.Forms.DataGridView();
+            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.просмотретьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.редактироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pbAlbum = new System.Windows.Forms.PictureBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.ToolStripMenuItemTracks = new System.Windows.Forms.ToolStripMenuItem();
+            this.пользовательToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.чекToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemCreateReceipt = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemViewReceips = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemSupply = new System.Windows.Forms.ToolStripMenuItem();
             this.IdAlbum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AlbumName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Artist = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,15 +50,8 @@
             this.YearOfRelease = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Genre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AlbumImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pbAlbum = new System.Windows.Forms.PictureBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.ToolStripMenuItemTracks = new System.Windows.Forms.ToolStripMenuItem();
-            this.пользовательToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.чекToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemCreateReceipt = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemViewReceips = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemSupply = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlbums)).BeginInit();
+            this.contextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlbum)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -54,6 +59,7 @@
             // dgvAlbums
             // 
             this.dgvAlbums.AllowUserToAddRows = false;
+            this.dgvAlbums.AllowUserToDeleteRows = false;
             this.dgvAlbums.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAlbums.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAlbums.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -66,76 +72,44 @@
             this.YearOfRelease,
             this.Genre,
             this.AlbumImage});
+            this.dgvAlbums.ContextMenuStrip = this.contextMenu;
             this.dgvAlbums.Location = new System.Drawing.Point(16, 69);
-            this.dgvAlbums.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvAlbums.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvAlbums.MultiSelect = false;
             this.dgvAlbums.Name = "dgvAlbums";
             this.dgvAlbums.RowHeadersWidth = 51;
+            this.dgvAlbums.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAlbums.Size = new System.Drawing.Size(720, 434);
             this.dgvAlbums.TabIndex = 0;
             this.dgvAlbums.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlbums_CellClick);
             this.dgvAlbums.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlbums_CellDoubleClick);
+            this.dgvAlbums.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgvAlbums_MouseDown);
             // 
-            // IdAlbum
+            // contextMenu
             // 
-            this.IdAlbum.HeaderText = "Id";
-            this.IdAlbum.MinimumWidth = 6;
-            this.IdAlbum.Name = "IdAlbum";
+            this.contextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.просмотретьToolStripMenuItem,
+            this.редактироватьToolStripMenuItem});
+            this.contextMenu.Name = "contextMenu";
+            this.contextMenu.Size = new System.Drawing.Size(181, 52);
             // 
-            // AlbumName
+            // просмотретьToolStripMenuItem
             // 
-            this.AlbumName.HeaderText = "Альбом";
-            this.AlbumName.MinimumWidth = 6;
-            this.AlbumName.Name = "AlbumName";
+            this.просмотретьToolStripMenuItem.Name = "просмотретьToolStripMenuItem";
+            this.просмотретьToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.просмотретьToolStripMenuItem.Text = "Просмотреть";
             // 
-            // Artist
+            // редактироватьToolStripMenuItem
             // 
-            this.Artist.HeaderText = "Исполнитель";
-            this.Artist.MinimumWidth = 6;
-            this.Artist.Name = "Artist";
-            // 
-            // AlbumCount
-            // 
-            this.AlbumCount.HeaderText = "В наличии";
-            this.AlbumCount.MinimumWidth = 6;
-            this.AlbumCount.Name = "AlbumCount";
-            // 
-            // Label
-            // 
-            this.Label.HeaderText = "Label";
-            this.Label.MinimumWidth = 6;
-            this.Label.Name = "Label";
-            // 
-            // YearOfAlbum
-            // 
-            this.YearOfAlbum.HeaderText = "YearOfAlbum";
-            this.YearOfAlbum.MinimumWidth = 6;
-            this.YearOfAlbum.Name = "YearOfAlbum";
-            // 
-            // YearOfRelease
-            // 
-            this.YearOfRelease.HeaderText = "YearOfRelease";
-            this.YearOfRelease.MinimumWidth = 6;
-            this.YearOfRelease.Name = "YearOfRelease";
-            // 
-            // Genre
-            // 
-            this.Genre.HeaderText = "Genre";
-            this.Genre.MinimumWidth = 6;
-            this.Genre.Name = "Genre";
-            // 
-            // AlbumImage
-            // 
-            this.AlbumImage.HeaderText = "Image";
-            this.AlbumImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.AlbumImage.MinimumWidth = 6;
-            this.AlbumImage.Name = "AlbumImage";
-            this.AlbumImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.AlbumImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
+            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.редактироватьToolStripMenuItem.Text = "Редактировать";
             // 
             // pbAlbum
             // 
             this.pbAlbum.Location = new System.Drawing.Point(803, 69);
-            this.pbAlbum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbAlbum.Margin = new System.Windows.Forms.Padding(4);
             this.pbAlbum.Name = "pbAlbum";
             this.pbAlbum.Size = new System.Drawing.Size(256, 256);
             this.pbAlbum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -199,6 +173,66 @@
             this.ToolStripMenuItemSupply.Text = "Поставки";
             this.ToolStripMenuItemSupply.Click += new System.EventHandler(this.ToolStripMenuItemSupply_Click);
             // 
+            // IdAlbum
+            // 
+            this.IdAlbum.HeaderText = "Id";
+            this.IdAlbum.MinimumWidth = 6;
+            this.IdAlbum.Name = "IdAlbum";
+            // 
+            // AlbumName
+            // 
+            this.AlbumName.HeaderText = "Альбом";
+            this.AlbumName.MinimumWidth = 6;
+            this.AlbumName.Name = "AlbumName";
+            this.AlbumName.ReadOnly = true;
+            // 
+            // Artist
+            // 
+            this.Artist.HeaderText = "Исполнитель";
+            this.Artist.MinimumWidth = 6;
+            this.Artist.Name = "Artist";
+            this.Artist.ReadOnly = true;
+            // 
+            // AlbumCount
+            // 
+            this.AlbumCount.HeaderText = "В наличии";
+            this.AlbumCount.MinimumWidth = 6;
+            this.AlbumCount.Name = "AlbumCount";
+            this.AlbumCount.ReadOnly = true;
+            // 
+            // Label
+            // 
+            this.Label.HeaderText = "Label";
+            this.Label.MinimumWidth = 6;
+            this.Label.Name = "Label";
+            // 
+            // YearOfAlbum
+            // 
+            this.YearOfAlbum.HeaderText = "YearOfAlbum";
+            this.YearOfAlbum.MinimumWidth = 6;
+            this.YearOfAlbum.Name = "YearOfAlbum";
+            // 
+            // YearOfRelease
+            // 
+            this.YearOfRelease.HeaderText = "YearOfRelease";
+            this.YearOfRelease.MinimumWidth = 6;
+            this.YearOfRelease.Name = "YearOfRelease";
+            // 
+            // Genre
+            // 
+            this.Genre.HeaderText = "Genre";
+            this.Genre.MinimumWidth = 6;
+            this.Genre.Name = "Genre";
+            // 
+            // AlbumImage
+            // 
+            this.AlbumImage.HeaderText = "Image";
+            this.AlbumImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.AlbumImage.MinimumWidth = 6;
+            this.AlbumImage.Name = "AlbumImage";
+            this.AlbumImage.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.AlbumImage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -207,14 +241,16 @@
             this.Controls.Add(this.pbAlbum);
             this.Controls.Add(this.dgvAlbums);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Магазин Винила";
             this.Activated += new System.EventHandler(this.MainForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlbums)).EndInit();
+            this.contextMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbAlbum)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -233,6 +269,10 @@
         private System.Windows.Forms.ToolStripMenuItem чекToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemCreateReceipt;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemViewReceips;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSupply;
+        private System.Windows.Forms.ContextMenuStrip contextMenu;
+        private System.Windows.Forms.ToolStripMenuItem просмотретьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem редактироватьToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdAlbum;
         private System.Windows.Forms.DataGridViewTextBoxColumn AlbumName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Artist;
@@ -242,7 +282,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn YearOfRelease;
         private System.Windows.Forms.DataGridViewTextBoxColumn Genre;
         private System.Windows.Forms.DataGridViewImageColumn AlbumImage;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSupply;
     }
 }
 

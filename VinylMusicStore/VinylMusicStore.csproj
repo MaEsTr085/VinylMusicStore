@@ -103,6 +103,12 @@
     <Compile Include="Classes\Track.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\Verification.cs" />
+    <Compile Include="Forms\AddNewAlbumForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddNewAlbumForm.Designer.cs">
+      <DependentUpon>AddNewAlbumForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AlbumForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     <Compile Include="Model\UsersFromDB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddNewAlbumForm.resx">
+      <DependentUpon>AddNewAlbumForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AlbumForm.resx">
       <DependentUpon>AlbumForm.cs</DependentUpon>
     </EmbeddedResource>
