@@ -1,4 +1,5 @@
 ﻿using Npgsql;
+using Npgsql.PostgresTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -72,6 +73,134 @@ namespace VinylMusicStore.Model
             {
                 MessageBox.Show(e.Message);
                 return albums;
+            }
+        }
+
+        public List<string> GetArtists()
+        {
+            List<string> artists = new List<string>();
+
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(DBConnection.connectionStr))
+                {
+                    connection.Open();
+                    string sqlQuery = "select artist_name from public.artists order by artist_name asc";
+                    NpgsqlCommand command = new NpgsqlCommand(sqlQuery, connection);
+                    NpgsqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            artists.Add(reader[0].ToString());
+                        }
+                        return artists;
+                    }
+                    reader.Close();
+                    return artists;
+                }
+            }
+            catch (NpgsqlException e)
+            {
+                MessageBox.Show(e.Message);
+                return artists;
+            }
+        }
+
+        public List<AlbumLabel> GetLabels()
+        {
+            List<AlbumLabel> labels = new List<AlbumLabel>();
+
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(DBConnection.connectionStr))
+                {
+                    connection.Open();
+                    string sqlQuery = "select * from public.labels order by label_name asc";
+                    NpgsqlCommand command = new NpgsqlCommand(sqlQuery, connection);
+                    NpgsqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            labels.Add(new AlbumLabel((int)reader[0], reader[1].ToString(), reader[2].ToString()));
+                        }
+                        return labels;
+                    }
+                    reader.Close();
+                    return labels;
+                }
+            }
+            catch (NpgsqlException e)
+            {
+                MessageBox.Show(e.Message);
+                return labels;
+            }
+        }
+
+        public List<string> GetLabelCountries()
+        {
+            List<string> countries = new List<string>();
+
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(DBConnection.connectionStr))
+                {
+                    connection.Open();
+                    string sqlQuery = "select country from public.labels group by country order by country asc";
+                    NpgsqlCommand command = new NpgsqlCommand(sqlQuery, connection);
+                    NpgsqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            countries.Add(reader[0].ToString());
+                        }
+                        return countries;
+                    }
+                    reader.Close();
+                    return countries;
+                }
+            }
+            catch (NpgsqlException e)
+            {
+                MessageBox.Show(e.Message);
+                return countries;
+            }
+        }
+
+        public List<string> GetGenres()
+        {
+            List<string> genres = new List<string>();
+
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(DBConnection.connectionStr))
+                {
+                    connection.Open();
+                    string sqlQuery = "select genre_name from public.genres order by genre_name asc";
+                    NpgsqlCommand command = new NpgsqlCommand(sqlQuery, connection);
+                    NpgsqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            genres.Add(reader[0].ToString());
+                        }
+                        return genres;
+                    }
+                    reader.Close();
+                    return genres;
+                }
+            }
+            catch (NpgsqlException e)
+            {
+                MessageBox.Show(e.Message);
+                return genres;
             }
         }
 
@@ -172,6 +301,33 @@ namespace VinylMusicStore.Model
             {
                 MessageBox.Show(e.Message);
                 return price;
+            }
+        }
+
+        public void AddNewAlbum(string album, string artist, AlbumLabel label, int yalbum, int yrelease, string genre, string img)
+        {
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(DBConnection.connectionStr))
+                {
+                    connection.Open();
+                    string sqlQuery = "call add_new_album_and_desc(@alb, @art, @lblname, @lblcountry, @yalbum, @yrelease, @genre, @img)";
+                    NpgsqlCommand command = new NpgsqlCommand(sqlQuery, connection);
+                    command.Parameters.Add(new NpgsqlParameter("alb", NpgsqlTypes.NpgsqlDbType.Text) { Value = album });
+                    command.Parameters.AddWithValue("art", artist);
+                    command.Parameters.Add(new NpgsqlParameter("lblname", NpgsqlTypes.NpgsqlDbType.Text) { Value = label.LabelName });
+                    command.Parameters.Add(new NpgsqlParameter("lblcountry", NpgsqlTypes.NpgsqlDbType.Text) { Value = label.Country });
+                    command.Parameters.AddWithValue("yalbum", yalbum);
+                    command.Parameters.AddWithValue("yrelease", yrelease);
+                    command.Parameters.AddWithValue("genre", genre);
+                    command.Parameters.AddWithValue("img", img);
+
+                    int i = command.ExecuteNonQuery();
+                }
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

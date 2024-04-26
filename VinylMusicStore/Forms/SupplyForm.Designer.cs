@@ -34,8 +34,6 @@
             this.AlbumCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Label = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Album = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbAlbumCost = new System.Windows.Forms.TextBox();
             this.numCount = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.cbLabel = new System.Windows.Forms.ComboBox();
@@ -63,11 +61,12 @@
             this.AlbumCount,
             this.Label,
             this.Album});
-            this.dgvSupply.Location = new System.Drawing.Point(22, 26);
+            this.dgvSupply.Location = new System.Drawing.Point(16, 21);
+            this.dgvSupply.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvSupply.Name = "dgvSupply";
             this.dgvSupply.RowHeadersWidth = 51;
             this.dgvSupply.RowTemplate.Height = 24;
-            this.dgvSupply.Size = new System.Drawing.Size(524, 520);
+            this.dgvSupply.Size = new System.Drawing.Size(393, 422);
             this.dgvSupply.TabIndex = 0;
             // 
             // DateOfSupply
@@ -100,32 +99,17 @@
             this.Album.MinimumWidth = 6;
             this.Album.Name = "Album";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(577, 294);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Стоимость альбома";
-            // 
-            // tbAlbumCost
-            // 
-            this.tbAlbumCost.Location = new System.Drawing.Point(726, 293);
-            this.tbAlbumCost.Name = "tbAlbumCost";
-            this.tbAlbumCost.Size = new System.Drawing.Size(121, 22);
-            this.tbAlbumCost.TabIndex = 3;
-            // 
             // numCount
             // 
-            this.numCount.Location = new System.Drawing.Point(726, 359);
+            this.numCount.Location = new System.Drawing.Point(544, 292);
+            this.numCount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numCount.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numCount.Name = "numCount";
-            this.numCount.Size = new System.Drawing.Size(121, 22);
+            this.numCount.Size = new System.Drawing.Size(91, 20);
             this.numCount.TabIndex = 4;
             this.numCount.Value = new decimal(new int[] {
             1,
@@ -136,62 +120,69 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(628, 359);
+            this.label2.Location = new System.Drawing.Point(471, 292);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 16);
+            this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Количество";
             // 
             // cbLabel
             // 
             this.cbLabel.FormattingEnabled = true;
-            this.cbLabel.Location = new System.Drawing.Point(726, 181);
+            this.cbLabel.Location = new System.Drawing.Point(544, 147);
+            this.cbLabel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbLabel.Name = "cbLabel";
-            this.cbLabel.Size = new System.Drawing.Size(121, 24);
+            this.cbLabel.Size = new System.Drawing.Size(92, 21);
             this.cbLabel.TabIndex = 2;
             this.cbLabel.SelectedIndexChanged += new System.EventHandler(this.cbLabel_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(665, 184);
+            this.label3.Location = new System.Drawing.Point(499, 150);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 16);
+            this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 1;
             this.label3.Text = "Лейбл";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(657, 137);
+            this.label4.Location = new System.Drawing.Point(493, 111);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 16);
+            this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 1;
             this.label4.Text = "Альбом";
             // 
             // cbAlbum
             // 
             this.cbAlbum.FormattingEnabled = true;
-            this.cbAlbum.Location = new System.Drawing.Point(726, 134);
+            this.cbAlbum.Location = new System.Drawing.Point(544, 109);
+            this.cbAlbum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbAlbum.Name = "cbAlbum";
-            this.cbAlbum.Size = new System.Drawing.Size(121, 24);
+            this.cbAlbum.Size = new System.Drawing.Size(92, 21);
             this.cbAlbum.TabIndex = 1;
             this.cbAlbum.SelectedIndexChanged += new System.EventHandler(this.cbAlbum_SelectedIndexChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(726, 64);
+            this.label5.Location = new System.Drawing.Point(544, 52);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(152, 16);
+            this.label5.Size = new System.Drawing.Size(120, 13);
             this.label5.TabIndex = 5;
             this.label5.Text = "Добавление поставки";
             // 
             // btnAddNewAlbum
             // 
-            this.btnAddNewAlbum.Location = new System.Drawing.Point(876, 164);
+            this.btnAddNewAlbum.Location = new System.Drawing.Point(657, 133);
+            this.btnAddNewAlbum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddNewAlbum.Name = "btnAddNewAlbum";
-            this.btnAddNewAlbum.Size = new System.Drawing.Size(145, 57);
+            this.btnAddNewAlbum.Size = new System.Drawing.Size(109, 46);
             this.btnAddNewAlbum.TabIndex = 6;
             this.btnAddNewAlbum.Text = "Добавить новый альбом";
             this.btnAddNewAlbum.UseVisualStyleBackColor = true;
@@ -200,17 +191,19 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(873, 137);
+            this.label6.Location = new System.Drawing.Point(655, 111);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(157, 16);
+            this.label6.Size = new System.Drawing.Size(127, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Нет альбома в списке?";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(715, 431);
+            this.btnAdd.Location = new System.Drawing.Point(536, 350);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(163, 54);
+            this.btnAdd.Size = new System.Drawing.Size(122, 44);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Добавить";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -218,9 +211,10 @@
             // 
             // btnDel
             // 
-            this.btnDel.Location = new System.Drawing.Point(419, 552);
+            this.btnDel.Location = new System.Drawing.Point(314, 448);
+            this.btnDel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(127, 41);
+            this.btnDel.Size = new System.Drawing.Size(95, 33);
             this.btnDel.TabIndex = 7;
             this.btnDel.Text = "Удалить";
             this.btnDel.UseVisualStyleBackColor = true;
@@ -228,9 +222,9 @@
             // 
             // SupplyForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1068, 622);
+            this.ClientSize = new System.Drawing.Size(801, 505);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnAddNewAlbum);
@@ -239,12 +233,11 @@
             this.Controls.Add(this.cbAlbum);
             this.Controls.Add(this.cbLabel);
             this.Controls.Add(this.numCount);
-            this.Controls.Add(this.tbAlbumCost);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvSupply);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "SupplyForm";
             this.Text = "Добавление поставки";
             this.Load += new System.EventHandler(this.SupplyForm_Load);
@@ -263,8 +256,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn AlbumCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Label;
         private System.Windows.Forms.DataGridViewTextBoxColumn Album;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbAlbumCost;
         private System.Windows.Forms.NumericUpDown numCount;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbLabel;

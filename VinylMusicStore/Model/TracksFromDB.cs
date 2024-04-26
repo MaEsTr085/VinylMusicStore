@@ -75,5 +75,26 @@ namespace VinylMusicStore.Model
                 return tracks;
             }
         }
+
+        public void AddTracks(string track, int duration)
+        {
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(DBConnection.connectionStr))
+                {
+                    connection.Open();
+                    string sqlQuery = "insert into public.tracks(id_track, album, track_name, duration) values ((select id_track + 1 from public.tracks order by id_track desc limit 1), (select id_catalog from public.catalogs order by id_catalog desc limit 1), @track, @duration);";
+                    NpgsqlCommand command = new NpgsqlCommand(sqlQuery, connection);
+                    command.Parameters.AddWithValue("track", track);
+                    command.Parameters.AddWithValue("duration", duration);
+
+                    int i = command.ExecuteNonQuery();
+                }
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
