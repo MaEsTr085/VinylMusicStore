@@ -95,12 +95,6 @@ namespace VinylMusicStore
             GetAlbums();
         }
 
-        private void ToolStripMenuItemSupply_Click(object sender, EventArgs e)
-        {
-            SupplyForm supplyForm = new SupplyForm();
-            supplyForm.Show();
-        }
-
         private void dgvAlbums_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -110,6 +104,17 @@ namespace VinylMusicStore
                 dgvAlbums.Rows[hti.RowIndex].Selected = true;
                 MessageBox.Show(dgvAlbums.CurrentRow.Index.ToString());
             }
+        }
+
+        private void ToolStripMenuItemAddSupply_Click(object sender, EventArgs e)
+        {
+            SupplyForm supplyForm = new SupplyForm();
+            supplyForm.Show();
+        }
+
+        private void ToolStripMenuItemViewSupply_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

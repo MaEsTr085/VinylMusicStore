@@ -169,6 +169,7 @@
     <Compile Include="Model\DBConnection.cs" />
     <Compile Include="Model\InfoFromDB.cs" />
     <Compile Include="Model\ReceiptsFromDB.cs" />
+    <Compile Include="Model\SupplyFromDB.cs" />
     <Compile Include="Model\TracksFromDB.cs" />
     <Compile Include="Model\UsersFromDB.cs" />
     <Compile Include="Program.cs" />

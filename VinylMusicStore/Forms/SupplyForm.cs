@@ -16,6 +16,7 @@ namespace VinylMusicStore.Forms
     public partial class SupplyForm : Form
     {
         AlbumsFromDB albumsFromDB = new AlbumsFromDB();
+        SupplyFromDB supplyFromDB = new SupplyFromDB();
         List<string> albums = new List<string>();
         List<string> labels = new List<string>();
 
@@ -24,10 +25,9 @@ namespace VinylMusicStore.Forms
             InitializeComponent();
 
             dgvSupply.Columns[0].DataPropertyName = "DateOfSupply";
-            dgvSupply.Columns[1].DataPropertyName = "AlbumCost";
-            dgvSupply.Columns[2].DataPropertyName = "AlbumCount";
-            dgvSupply.Columns[3].DataPropertyName = "Label";
-            dgvSupply.Columns[4].DataPropertyName = "Album";
+            dgvSupply.Columns[1].DataPropertyName = "AlbumCount";
+            dgvSupply.Columns[2].DataPropertyName = "Label";
+            dgvSupply.Columns[3].DataPropertyName = "Album";
 
             albums = albumsFromDB.GetAlbumsForReceipt();
         }
@@ -40,10 +40,7 @@ namespace VinylMusicStore.Forms
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (tbAlbumCost.Text != "") 
-                dgvSupply.Rows.Add(DateTime.Now.ToString(), tbAlbumCost.Text, numCount.Value, cbLabel.Text, cbAlbum.Text);
-            else
-                MessageBox.Show("Стоимость альбома не может быть нулевой");
+            dgvSupply.Rows.Add(DateTime.Now.ToString(), numCount.Value, cbLabel.Text, cbAlbum.Text);
         }
 
         private void btnDel_Click(object sender, EventArgs e)
@@ -58,20 +55,54 @@ namespace VinylMusicStore.Forms
         {
             AddNewAlbumForm addNewAlbumForm = new AddNewAlbumForm();
             addNewAlbumForm.ShowDialog();
+
+            cbAlbum.Items.Clear();
+            albums = albumsFromDB.GetAlbumsForReceipt();
+            cbAlbum.Items.AddRange(albums.ToArray());
         }
 
         private void cbAlbum_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbLabel.Items.Clear();
-            cbLabel.Text = String.Empty;
 
-            labels = albumsFromDB.GetLabelsForAlbum(cbAlbum.Text);
-            cbLabel.Items.AddRange(labels.ToArray());
+            List<AlbumLabel> albumLabels = albumsFromDB.GetLabelsForAlbum(cbAlbum.Text);
+            List<string> items = new List<string>();
+            if (albumLabels.Count != 0)
+            {
+                for (int i = 0; i < albumLabels.Count; i++)
+                {
+                    items.Add(albumLabels[i].LabelName + ", " + albumLabels[i].Country);
+                }
+            }
+
+            cbLabel.Items.AddRange(items.ToArray());
         }
 
         private void cbLabel_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+        }
 
+        private void btnAddSupply_Click(object sender, EventArgs e)
+        {
+            if (dgvSupply.RowCount != 0)
+            {
+                for (int i = 0; i < dgvSupply.RowCount; i++)
+                {
+                    string[] tmp = dgvSupply[2, i].Value.ToString().Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
+                    AlbumLabel label = new AlbumLabel(0, tmp[0], tmp[1]);
+                    supplyFromDB.AddNewSupply(DateTime.Parse(dgvSupply[0, i].Value.ToString()), int.Parse(dgvSupply[1, i].Value.ToString()), tmp[0], tmp[1], dgvSupply[3, i].Value.ToString());
+                }
+
+                dgvSupply.DataSource = null;
+                cbAlbum.Items.Clear();
+                cbLabel.Items.Clear();
+                numCount.Value = 1;
+            }
+            else
+            {
+                MessageBox.Show("Не было добавлено ни одной поставки!");
+            }
         }
     }
 }

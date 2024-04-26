@@ -237,9 +237,9 @@ namespace VinylMusicStore.Model
             }
         }
 
-        public List<string> GetLabelsForAlbum(string album)
+        public List<AlbumLabel> GetLabelsForAlbum(string album)
         {
-            List<string> labels = new List<string>();
+            List<AlbumLabel> labels = new List<AlbumLabel>();
 
             try
             {
@@ -255,7 +255,7 @@ namespace VinylMusicStore.Model
                     {
                         while (reader.Read())
                         {
-                            labels.Add(reader[0].ToString());
+                            labels.Add(new AlbumLabel(0, reader[0].ToString(), reader[1].ToString()));
                         }
                         return labels;
                     }

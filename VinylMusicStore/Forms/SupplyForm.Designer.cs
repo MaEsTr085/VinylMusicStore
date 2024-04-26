@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvSupply = new System.Windows.Forms.DataGridView();
-            this.DateOfSupply = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AlbumCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AlbumCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Label = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Album = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numCount = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.cbLabel = new System.Windows.Forms.ComboBox();
@@ -45,6 +40,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
+            this.DateOfSupply = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AlbumCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Label = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Album = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAddSupply = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupply)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCount)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +57,6 @@
             this.dgvSupply.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSupply.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DateOfSupply,
-            this.AlbumCost,
             this.AlbumCount,
             this.Label,
             this.Album});
@@ -69,39 +68,9 @@
             this.dgvSupply.Size = new System.Drawing.Size(393, 422);
             this.dgvSupply.TabIndex = 0;
             // 
-            // DateOfSupply
-            // 
-            this.DateOfSupply.HeaderText = "Дата Поставки";
-            this.DateOfSupply.MinimumWidth = 6;
-            this.DateOfSupply.Name = "DateOfSupply";
-            // 
-            // AlbumCost
-            // 
-            this.AlbumCost.HeaderText = "Стоимость Альбома";
-            this.AlbumCost.MinimumWidth = 6;
-            this.AlbumCost.Name = "AlbumCost";
-            // 
-            // AlbumCount
-            // 
-            this.AlbumCount.HeaderText = "Количество Альбомов";
-            this.AlbumCount.MinimumWidth = 6;
-            this.AlbumCount.Name = "AlbumCount";
-            // 
-            // Label
-            // 
-            this.Label.HeaderText = "Лейбл";
-            this.Label.MinimumWidth = 6;
-            this.Label.Name = "Label";
-            // 
-            // Album
-            // 
-            this.Album.HeaderText = "Альбом";
-            this.Album.MinimumWidth = 6;
-            this.Album.Name = "Album";
-            // 
             // numCount
             // 
-            this.numCount.Location = new System.Drawing.Point(544, 292);
+            this.numCount.Location = new System.Drawing.Point(545, 191);
             this.numCount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numCount.Minimum = new decimal(new int[] {
             1,
@@ -120,7 +89,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(471, 292);
+            this.label2.Location = new System.Drawing.Point(472, 193);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 13);
@@ -200,7 +169,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(536, 350);
+            this.btnAdd.Location = new System.Drawing.Point(547, 232);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(122, 44);
@@ -220,12 +189,48 @@
             this.btnDel.UseVisualStyleBackColor = true;
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
+            // DateOfSupply
+            // 
+            this.DateOfSupply.HeaderText = "Дата Поставки";
+            this.DateOfSupply.MinimumWidth = 6;
+            this.DateOfSupply.Name = "DateOfSupply";
+            // 
+            // AlbumCount
+            // 
+            this.AlbumCount.HeaderText = "Количество Альбомов";
+            this.AlbumCount.MinimumWidth = 6;
+            this.AlbumCount.Name = "AlbumCount";
+            // 
+            // Label
+            // 
+            this.Label.HeaderText = "Лейбл";
+            this.Label.MinimumWidth = 6;
+            this.Label.Name = "Label";
+            // 
+            // Album
+            // 
+            this.Album.HeaderText = "Альбом";
+            this.Album.MinimumWidth = 6;
+            this.Album.Name = "Album";
+            // 
+            // btnAddSupply
+            // 
+            this.btnAddSupply.Location = new System.Drawing.Point(642, 437);
+            this.btnAddSupply.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddSupply.Name = "btnAddSupply";
+            this.btnAddSupply.Size = new System.Drawing.Size(140, 44);
+            this.btnAddSupply.TabIndex = 5;
+            this.btnAddSupply.Text = "Добавить поставку";
+            this.btnAddSupply.UseVisualStyleBackColor = true;
+            this.btnAddSupply.Click += new System.EventHandler(this.btnAddSupply_Click);
+            // 
             // SupplyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 505);
             this.Controls.Add(this.btnDel);
+            this.Controls.Add(this.btnAddSupply);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnAddNewAlbum);
             this.Controls.Add(this.label6);
@@ -251,11 +256,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvSupply;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateOfSupply;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AlbumCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AlbumCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Label;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Album;
         private System.Windows.Forms.NumericUpDown numCount;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbLabel;
@@ -267,5 +267,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateOfSupply;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AlbumCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Label;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Album;
+        private System.Windows.Forms.Button btnAddSupply;
     }
 }
