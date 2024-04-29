@@ -45,14 +45,15 @@
             this.pbAlbum = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItemTracks = new System.Windows.Forms.ToolStripMenuItem();
-            this.пользовательToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.чекToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemCreateReceipt = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemViewReceips = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemSupply = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemAddSupply = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemViewSupply = new System.Windows.Forms.ToolStripMenuItem();
+            this.пользовательToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сменитьПарольToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemAllUsers = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlbums)).BeginInit();
             this.contextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlbum)).BeginInit();
@@ -199,14 +200,6 @@
             this.ToolStripMenuItemTracks.Text = "Треки";
             this.ToolStripMenuItemTracks.Click += new System.EventHandler(this.ToolStripMenuItemTracks_Click);
             // 
-            // пользовательToolStripMenuItem
-            // 
-            this.пользовательToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.сменитьПарольToolStripMenuItem});
-            this.пользовательToolStripMenuItem.Name = "пользовательToolStripMenuItem";
-            this.пользовательToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
-            this.пользовательToolStripMenuItem.Text = "Пользователь";
-            // 
             // чекToolStripMenuItem
             // 
             this.чекToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -219,14 +212,14 @@
             // ToolStripMenuItemCreateReceipt
             // 
             this.ToolStripMenuItemCreateReceipt.Name = "ToolStripMenuItemCreateReceipt";
-            this.ToolStripMenuItemCreateReceipt.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemCreateReceipt.Size = new System.Drawing.Size(177, 22);
             this.ToolStripMenuItemCreateReceipt.Text = "Создать чек";
             this.ToolStripMenuItemCreateReceipt.Click += new System.EventHandler(this.ToolStripMenuItemCreateReceipt_Click);
             // 
             // ToolStripMenuItemViewReceips
             // 
             this.ToolStripMenuItemViewReceips.Name = "ToolStripMenuItemViewReceips";
-            this.ToolStripMenuItemViewReceips.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemViewReceips.Size = new System.Drawing.Size(177, 22);
             this.ToolStripMenuItemViewReceips.Text = "Просмотреть чеки";
             // 
             // ToolStripMenuItemSupply
@@ -252,11 +245,27 @@
             this.ToolStripMenuItemViewSupply.Text = "Просмотреть поставки";
             this.ToolStripMenuItemViewSupply.Click += new System.EventHandler(this.ToolStripMenuItemViewSupply_Click);
             // 
+            // пользовательToolStripMenuItem
+            // 
+            this.пользовательToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сменитьПарольToolStripMenuItem,
+            this.ToolStripMenuItemAllUsers});
+            this.пользовательToolStripMenuItem.Name = "пользовательToolStripMenuItem";
+            this.пользовательToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.пользовательToolStripMenuItem.Text = "Пользователь";
+            // 
             // сменитьПарольToolStripMenuItem
             // 
             this.сменитьПарольToolStripMenuItem.Name = "сменитьПарольToolStripMenuItem";
             this.сменитьПарольToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.сменитьПарольToolStripMenuItem.Text = "Сменить пароль";
+            // 
+            // ToolStripMenuItemAllUsers
+            // 
+            this.ToolStripMenuItemAllUsers.Name = "ToolStripMenuItemAllUsers";
+            this.ToolStripMenuItemAllUsers.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemAllUsers.Text = "Все пользователи";
+            this.ToolStripMenuItemAllUsers.Click += new System.EventHandler(this.ToolStripMenuItemAllUsers_Click);
             // 
             // MainForm
             // 
@@ -309,6 +318,7 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAddSupply;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemViewSupply;
         private System.Windows.Forms.ToolStripMenuItem сменитьПарольToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAllUsers;
     }
 }
 

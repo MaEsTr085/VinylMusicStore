@@ -114,7 +114,14 @@ namespace VinylMusicStore
 
         private void ToolStripMenuItemViewSupply_Click(object sender, EventArgs e)
         {
+            SupplyForm supplyForm = new SupplyForm();
+            supplyForm.Show();
+        }
 
+        private void ToolStripMenuItemAllUsers_Click(object sender, EventArgs e)
+        {
+            UsersForm usersForm = new UsersForm();
+            usersForm.Show();
         }
     }
 }

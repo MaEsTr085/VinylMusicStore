@@ -101,6 +101,7 @@
     <Compile Include="Classes\Album.cs" />
     <Compile Include="Classes\Artist.cs" />
     <Compile Include="Classes\AlbumLabel.cs" />
+    <Compile Include="Classes\Post.cs" />
     <Compile Include="Classes\Receipt.cs" />
     <Compile Include="Classes\Track.cs" />
     <Compile Include="Classes\User.cs" />
@@ -110,6 +111,12 @@
     </Compile>
     <Compile Include="Forms\AddNewAlbumForm.Designer.cs">
       <DependentUpon>AddNewAlbumForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddNewEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddNewEmployeeForm.Designer.cs">
+      <DependentUpon>AddNewEmployeeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddNewInfoElementForm.cs">
       <SubType>Form</SubType>
@@ -135,6 +142,7 @@
     <Compile Include="Forms\CreateReceiptForm.Designer.cs">
       <DependentUpon>CreateReceiptForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Employee.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,10 +173,19 @@
     <Compile Include="Forms\TracksForm.Designer.cs">
       <DependentUpon>TracksForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UsersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UsersForm.Designer.cs">
+      <DependentUpon>UsersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\AlbumsFromDB.cs" />
     <Compile Include="Model\DBConnection.cs" />
+    <Compile Include="Model\EmployeesFromDB.cs" />
     <Compile Include="Model\InfoFromDB.cs" />
+    <Compile Include="Model\PostsFromDB.cs" />
     <Compile Include="Model\ReceiptsFromDB.cs" />
+    <Compile Include="Model\Registration.cs" />
     <Compile Include="Model\SupplyFromDB.cs" />
     <Compile Include="Model\TracksFromDB.cs" />
     <Compile Include="Model\UsersFromDB.cs" />
@@ -176,6 +193,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AddNewAlbumForm.resx">
       <DependentUpon>AddNewAlbumForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddNewEmployeeForm.resx">
+      <DependentUpon>AddNewEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddNewInfoElementForm.resx">
       <DependentUpon>AddNewInfoElementForm.cs</DependentUpon>
@@ -203,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TracksForm.resx">
       <DependentUpon>TracksForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UsersForm.resx">
+      <DependentUpon>UsersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
