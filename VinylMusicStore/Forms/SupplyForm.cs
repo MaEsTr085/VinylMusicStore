@@ -17,6 +17,8 @@ namespace VinylMusicStore.Forms
     {
         AlbumsFromDB albumsFromDB = new AlbumsFromDB();
         SupplyFromDB supplyFromDB = new SupplyFromDB();
+        InfoFromDB infoFromDB = new InfoFromDB();
+
         List<string> albums = new List<string>();
         List<string> labels = new List<string>();
 
@@ -65,7 +67,7 @@ namespace VinylMusicStore.Forms
         {
             cbLabel.Items.Clear();
 
-            List<AlbumLabel> albumLabels = albumsFromDB.GetLabelsForAlbum(cbAlbum.Text);
+            List<AlbumLabel> albumLabels = infoFromDB.GetLabelsForAlbum(cbAlbum.Text);
             List<string> items = new List<string>();
             if (albumLabels.Count != 0)
             {

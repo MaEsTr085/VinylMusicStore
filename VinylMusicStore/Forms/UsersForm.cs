@@ -23,18 +23,20 @@ namespace VinylMusicStore.Forms
 
             dgvEmployees.Columns[0].DataPropertyName = "EmployeeID";
             dgvEmployees.Columns[1].DataPropertyName = "EmployeeFIO";
-            dgvEmployees.Columns[2].DataPropertyName = "Login";
-            dgvEmployees.Columns[3].DataPropertyName = "Post";
-            dgvEmployees.Columns[4].DataPropertyName = "WorkExp";
-            dgvEmployees.Columns[5].DataPropertyName = "StartDate";
-            dgvEmployees.Columns[6].DataPropertyName = "Phone";
-            dgvEmployees.Columns[7].DataPropertyName = "WorkSchedule";
+            dgvEmployees.Columns[2].DataPropertyName = "Pasport";
+            dgvEmployees.Columns[3].DataPropertyName = "Login";
+            dgvEmployees.Columns[4].DataPropertyName = "Post";
+            dgvEmployees.Columns[5].DataPropertyName = "WorkExp";
+            dgvEmployees.Columns[6].DataPropertyName = "StartDate";
+            dgvEmployees.Columns[7].DataPropertyName = "Phone";
+            dgvEmployees.Columns[8].DataPropertyName = "WorkSchedule";
 
             dgvEmployees.Columns[0].Visible = false;
-            dgvEmployees.Columns[4].Visible = false;
+            dgvEmployees.Columns[2].Visible = false;
             dgvEmployees.Columns[5].Visible = false;
             dgvEmployees.Columns[6].Visible = false;
             dgvEmployees.Columns[7].Visible = false;
+            dgvEmployees.Columns[8].Visible = false;
         }
 
         private void GetEmployees()

@@ -19,6 +19,7 @@ namespace VinylMusicStore.Forms
 
         AlbumsFromDB albumsFromDB = new AlbumsFromDB();
         TracksFromDB tracksFromDB = new TracksFromDB();
+        InfoFromDB infoFromDB = new InfoFromDB();
 
         public enum Control
         {
@@ -117,7 +118,7 @@ namespace VinylMusicStore.Forms
                     }
                     break;
                 case Control.Label:
-                    addNewInfoElementForm = new AddNewInfoElementForm("Добавление лейбла", "Лейбл");
+                    addNewInfoElementForm = new AddNewInfoElementForm("Добавление лейбла", "Лейбл", "Страна");
                     dialogResult = addNewInfoElementForm.ShowDialog();
                     if (dialogResult == DialogResult.OK)
                     {
@@ -215,7 +216,7 @@ namespace VinylMusicStore.Forms
 
             lbItems.Items.Clear();
 
-            items = albumsFromDB.GetArtists();
+            items = infoFromDB.GetArtistsForAlbum();
             lbItems.Items.AddRange(items.ToArray());
         }
 
@@ -227,7 +228,7 @@ namespace VinylMusicStore.Forms
 
             items.Clear();
 
-            List<AlbumLabel> albumLabels = albumsFromDB.GetLabels();
+            List<AlbumLabel> albumLabels = infoFromDB.GetLabels();
 
             if (albumLabels.Count != 0)
             {
@@ -246,7 +247,7 @@ namespace VinylMusicStore.Forms
 
             lbItems.Items.Clear();
 
-            items = albumsFromDB.GetGenres();
+            items = infoFromDB.GetGenresForReceipt();
             lbItems.Items.AddRange(items.ToArray());
         }
 

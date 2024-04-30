@@ -2,12 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VinylMusicStore.Classes;
+using VinylMusicStore.Forms;
 
 namespace VinylMusicStore.Model
 {
@@ -58,6 +60,37 @@ namespace VinylMusicStore.Model
             }
         }
 
+        public User GetUserByLogin(string login)
+        {
+            User user = null;
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(DBConnection.connectionStr))
+                {
+                    connection.Open();
+                    string sqlQuery = "select * from get_user(@login)";
+                    NpgsqlCommand command = new NpgsqlCommand(sqlQuery, connection);
+                    command.Parameters.AddWithValue("login", login);
+
+                    NpgsqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            user = new User((int)reader[0], reader[1].ToString(), reader[2].ToString(), (int)reader[3]);
+                        }
+                    }
+                    reader.Close();
+                    return user;
+                }
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return user;
+            }
+        }
+
         public string GetUserById(int id)
         {
             string employee = null;
@@ -89,6 +122,29 @@ namespace VinylMusicStore.Model
             {
                 MessageBox.Show(ex.Message);
                 return employee;
+            }
+        }
+
+        public void UpdatePassword(string password, int userid)
+        {
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(DBConnection.connectionStr))
+                {
+                    connection.Open();
+
+                    string sqlQuery = "update public.users set user_password = @password where user_id = @userid";
+                    NpgsqlCommand command = new NpgsqlCommand(sqlQuery, connection);
+                    command.Parameters.AddWithValue("password", password);
+                    command.Parameters.AddWithValue("userid", userid);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
     }

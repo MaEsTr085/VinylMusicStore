@@ -44,7 +44,20 @@ namespace VinylMusicStore.Forms
                     Artist artist = new Artist(0, tbMain.Text, tbOptional.Text);
                     infoFromDB.AddArtist(artist);
                     break;
+                case "Лейбл":
+                    AlbumLabel label = new AlbumLabel(0, tbMain.Text, tbOptional.Text);
+                    infoFromDB.AddLabel(label);
+                    break;
+                case "Жанр":
+                    Genre genre = new Genre(0, tbMain.Text);
+                    infoFromDB.AddGenre(genre);
+                    break;
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

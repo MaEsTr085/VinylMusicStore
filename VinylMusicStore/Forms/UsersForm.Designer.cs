@@ -31,14 +31,6 @@
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
             this.btnDel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.EmployeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeeFIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Login = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WorkExp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WorkSchedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,6 +50,15 @@
             this.lblStartDate = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblWorkSchedule = new System.Windows.Forms.Label();
+            this.EmployeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeFIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pasport = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Login = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WorkExp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WorkSchedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,6 +71,7 @@
             this.dgvEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EmployeeID,
             this.EmployeeFIO,
+            this.Pasport,
             this.Login,
             this.Post,
             this.WorkExp,
@@ -101,46 +103,6 @@
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Сотрудник";
-            // 
-            // EmployeeID
-            // 
-            this.EmployeeID.HeaderText = "EmployeeID";
-            this.EmployeeID.Name = "EmployeeID";
-            // 
-            // EmployeeFIO
-            // 
-            this.EmployeeFIO.HeaderText = "ФИО";
-            this.EmployeeFIO.Name = "EmployeeFIO";
-            // 
-            // Login
-            // 
-            this.Login.HeaderText = "Логин Пользователя";
-            this.Login.Name = "Login";
-            // 
-            // Post
-            // 
-            this.Post.HeaderText = "Должность";
-            this.Post.Name = "Post";
-            // 
-            // WorkExp
-            // 
-            this.WorkExp.HeaderText = "WorkExp";
-            this.WorkExp.Name = "WorkExp";
-            // 
-            // StartDate
-            // 
-            this.StartDate.HeaderText = "StartDate";
-            this.StartDate.Name = "StartDate";
-            // 
-            // Phone
-            // 
-            this.Phone.HeaderText = "Phone";
-            this.Phone.Name = "Phone";
-            // 
-            // WorkSchedule
-            // 
-            this.WorkSchedule.HeaderText = "WorkSchedule";
-            this.WorkSchedule.Name = "WorkSchedule";
             // 
             // label2
             // 
@@ -315,6 +277,51 @@
             this.lblWorkSchedule.TabIndex = 2;
             this.lblWorkSchedule.Text = "lblWorkSchedule";
             // 
+            // EmployeeID
+            // 
+            this.EmployeeID.HeaderText = "EmployeeID";
+            this.EmployeeID.Name = "EmployeeID";
+            // 
+            // EmployeeFIO
+            // 
+            this.EmployeeFIO.HeaderText = "ФИО";
+            this.EmployeeFIO.Name = "EmployeeFIO";
+            // 
+            // Pasport
+            // 
+            this.Pasport.HeaderText = "Pasport";
+            this.Pasport.Name = "Pasport";
+            // 
+            // Login
+            // 
+            this.Login.HeaderText = "Логин Пользователя";
+            this.Login.Name = "Login";
+            // 
+            // Post
+            // 
+            this.Post.HeaderText = "Должность";
+            this.Post.Name = "Post";
+            // 
+            // WorkExp
+            // 
+            this.WorkExp.HeaderText = "WorkExp";
+            this.WorkExp.Name = "WorkExp";
+            // 
+            // StartDate
+            // 
+            this.StartDate.HeaderText = "StartDate";
+            this.StartDate.Name = "StartDate";
+            // 
+            // Phone
+            // 
+            this.Phone.HeaderText = "Phone";
+            this.Phone.Name = "Phone";
+            // 
+            // WorkSchedule
+            // 
+            this.WorkSchedule.HeaderText = "WorkSchedule";
+            this.WorkSchedule.Name = "WorkSchedule";
+            // 
             // UsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,14 +363,6 @@
         private System.Windows.Forms.DataGridView dgvEmployees;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeFIO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Login;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Post;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WorkExp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Phone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WorkSchedule;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -383,5 +382,14 @@
         private System.Windows.Forms.Label lblStartDate;
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label lblWorkSchedule;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeFIO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pasport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Login;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Post;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WorkExp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Phone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WorkSchedule;
     }
 }

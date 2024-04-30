@@ -15,6 +15,8 @@ namespace VinylMusicStore.Forms
     public partial class CreateReceiptForm : Form
     {
         AlbumsFromDB albumsFromDB = new AlbumsFromDB();
+        InfoFromDB infoFromDB = new InfoFromDB();
+
         List<string> albums = new List<string>();
         List<string> labels = new List<string>();
 
@@ -41,7 +43,7 @@ namespace VinylMusicStore.Forms
         {
             for (int i = 0; i < albums.Count; i++)
             {
-                labels = albumsFromDB.GetLabelsForAlbumNoZero(albums[i]);
+                labels = infoFromDB.GetLabelsForAlbumNoZero(albums[i]);
                 if (labels.Count == 0)
                     albums.Remove(albums[i]);
             }
@@ -54,7 +56,7 @@ namespace VinylMusicStore.Forms
             cbLabel.Items.Clear();
             cbLabel.Text = String.Empty;
 
-            labels = albumsFromDB.GetLabelsForAlbumNoZero(cbAlbum.Text);
+            labels = infoFromDB.GetLabelsForAlbumNoZero(cbAlbum.Text);
             cbLabel.Items.AddRange(labels.ToArray());
         }
 

@@ -62,5 +62,12 @@ namespace VinylMusicStore.Forms
                 btnAuth.Focus();
             }
         }
+
+        private void btnRecover_Click(object sender, EventArgs e)
+        {
+            RecoverPasswordForm recoverPasswordForm = new RecoverPasswordForm();
+            recoverPasswordForm.Show();
+            this.Hide();
+        }
     }
 }

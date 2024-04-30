@@ -16,8 +16,12 @@ namespace VinylMusicStore
     public partial class MainForm : Form
     {
         AlbumsFromDB albumsFromDB = new AlbumsFromDB();
+        UsersFromDB usersFromDB = new UsersFromDB();
+
         public static List<Album> albums = new List<Album>();
         public static Album album;
+
+        private bool isClosed;
 
         public MainForm()
         {
@@ -39,6 +43,10 @@ namespace VinylMusicStore
             dgvAlbums.Columns[6].Visible = false;
             dgvAlbums.Columns[7].Visible = false;
             dgvAlbums.Columns[8].Visible = false;
+
+            lblAlbumName.Visible = false;
+            lblArtist.Visible = false;
+            lblPrice.Visible = false;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -46,6 +54,8 @@ namespace VinylMusicStore
             GetAlbums();
             Bitmap image = new Bitmap(@"..\..\Images\vinyl.png");
             pbAlbum.Image = image;
+
+            lblCurUser.Text = usersFromDB.GetUserById(AuthForm.currentUser.Employee);
         }
 
         private void GetAlbums()
@@ -72,7 +82,8 @@ namespace VinylMusicStore
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            if (!(isClosed))
+                Application.Exit();
         }
 
         private void dgvAlbums_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -82,6 +93,14 @@ namespace VinylMusicStore
             album = albums[selectedRowIndex];
 
             pbAlbum.Image = album.Image;
+
+            lblAlbumName.Visible = true;
+            lblArtist.Visible = true;
+            lblPrice.Visible = true;
+
+            lblAlbumName.Text = album.AlbumName;
+            lblArtist.Text = album.Artist;
+            lblPrice.Text = albumsFromDB.GetAlbumPrice(album.AlbumName, album.Label).ToString();
         }
 
         private void ToolStripMenuItemCreateReceipt_Click(object sender, EventArgs e)
@@ -122,6 +141,51 @@ namespace VinylMusicStore
         {
             UsersForm usersForm = new UsersForm();
             usersForm.Show();
+        }
+
+        private void ToolStripMenuItemEditProfile_Click(object sender, EventArgs e)
+        {
+            EditUserProfileForm editUserProfileForm = new EditUserProfileForm();
+            editUserProfileForm.ShowDialog();
+
+            lblCurUser.Text = usersFromDB.GetUserById(AuthForm.currentUser.Employee);
+        }
+
+        private void ToolStripMenuItemChangePassword_Click(object sender, EventArgs e)
+        {
+            ChangePasswordForm changePasswordForm = new ChangePasswordForm();
+            changePasswordForm.ShowDialog();
+        }
+
+        private void ToolStripMenuItemArtists_Click(object sender, EventArgs e)
+        {
+            ArtistsForm artistsForm = new ArtistsForm();
+            artistsForm.Show();
+        }
+
+        private void ToolStripMenuItemGenres_Click(object sender, EventArgs e)
+        {
+            GenresForm genresForm = new GenresForm();
+            genresForm.Show();
+        }
+
+        private void ToolStripMenuItemLabels_Click(object sender, EventArgs e)
+        {
+            LabelsForm labelsForm = new LabelsForm();
+            labelsForm.Show();
+        }
+
+        private void ToolStripMenuItemChangeUser_Click(object sender, EventArgs e)
+        {
+            AuthForm.currentUser = null;
+            Application.OpenForms[0].Show();
+            isClosed = true;
+            this.Close();
+        }
+
+        private void ToolStripMenuItemExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

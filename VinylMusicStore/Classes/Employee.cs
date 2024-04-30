@@ -10,6 +10,7 @@ namespace VinylMusicStore.Forms
     {
         public int EmployeeID { get; set; }
         public string EmployeeFIO { get; set; }
+        public string Pasport { get; set; }
         public string Login { get; set; }
         public string Post { get; set; }
         public int WorkExp { get; set; }
@@ -17,10 +18,11 @@ namespace VinylMusicStore.Forms
         public string Phone { get; set; }
         public string WorkSchedule { get; set; }
 
-        public Employee(int employeeID, string employeeFIO, string login, string post, int workExp, DateTime startDate, string phone, string workSchedule)
+        public Employee(int employeeID, string employeeFIO, string pasport, string login, string post, int workExp, DateTime startDate, string phone, string workSchedule)
         {
             EmployeeID = employeeID;
             EmployeeFIO = employeeFIO;
+            Pasport = pasport;
             Login = login;
             Post = post;
             WorkExp = workExp;
