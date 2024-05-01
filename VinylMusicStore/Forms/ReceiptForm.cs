@@ -66,7 +66,15 @@ namespace VinylMusicStore.Forms
 
             lblDateTime.Text = DateTime.Now.ToString();
 
-            string qrtext = "123456";
+            string dateTime = "";
+            string[] tmp = lblDateTime.Text.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+            dateTime += tmp[0] + tmp[1];
+            tmp = tmp[2].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            dateTime += tmp[0];
+            tmp = tmp[1].Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+            dateTime += tmp[0] + tmp[1] + tmp[2];
+
+            string qrtext = dateTime + "&" + lblSum.Text + "&" + lblFN.Text + "&" + lblFD.Text + "&" + lblFPD.Text + "&" + lblReceiptNum.Text;
             QRCodeEncoder encoder = new QRCodeEncoder();
             Bitmap qrcode = encoder.Encode(qrtext);
             pbQRCode.Image = qrcode as Image;

@@ -42,5 +42,10 @@ namespace VinylMusicStore.Forms
             employeesFromDB.UpdateEmployeeNUser(editEmployee.EmployeeID, tbPasport.Text, tbName.Text + " " + tbSurname.Text + " " + tbPatronymic.Text, tbPhone.Text, tbLogin.Text);
             this.Close();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

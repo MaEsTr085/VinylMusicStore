@@ -29,11 +29,14 @@ namespace VinylMusicStore.Forms
             dgvTracks.Columns[0].Visible = false;
             dgvTracks.Columns[1].Visible = false;
 
-            tbArtist.Enabled = false;
-            tbLabel.Enabled = false;
-            tbYearAlbum.Enabled = false;
-            tbYearRelease.Enabled = false;
-            tbGenre.Enabled = false;
+            
+
+            tbArtist.ReadOnly = true;
+            tbLabel.ReadOnly = true;
+            tbCountry.ReadOnly = true;
+            tbYearAlbum.ReadOnly = true;
+            tbYearRelease.ReadOnly = true;
+            tbGenre.ReadOnly = true;
         }
 
         private void GetTracks(int id)
@@ -46,8 +49,11 @@ namespace VinylMusicStore.Forms
         {
             this.Text = $"Альбом {MainForm.album.AlbumName}";
 
+            lblAlbum.Text = MainForm.album.AlbumName;
+
             tbArtist.Text = MainForm.album.Artist;
             tbLabel.Text = MainForm.album.Label;
+            tbCountry.Text = MainForm.album.Country;
             tbYearAlbum.Text = MainForm.album.YearOfAlbum.ToString();
             tbYearRelease.Text = MainForm.album.YearOfRelease.ToString();
             tbGenre.Text = MainForm.album.Genre;
@@ -58,6 +64,16 @@ namespace VinylMusicStore.Forms
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams CP = base.CreateParams;
+                CP.ExStyle = CP.ExStyle | 0x2000000; // WS_EX_COMPOSITED
+                return CP;
+            }
         }
     }
 }

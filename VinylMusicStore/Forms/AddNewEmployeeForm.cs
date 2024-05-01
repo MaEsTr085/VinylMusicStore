@@ -88,5 +88,10 @@ namespace VinylMusicStore.Forms
 
             this.Close();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

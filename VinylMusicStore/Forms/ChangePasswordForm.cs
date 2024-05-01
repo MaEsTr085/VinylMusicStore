@@ -74,5 +74,13 @@ namespace VinylMusicStore.Forms
                 tbOldPassword.Visible = false;
             }
         }
+
+        private void ChangePasswordForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (recover)
+                Application.Exit();
+            else
+                this.Close();
+        }
     }
 }

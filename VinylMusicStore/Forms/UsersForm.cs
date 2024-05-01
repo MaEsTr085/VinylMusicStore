@@ -175,5 +175,10 @@ namespace VinylMusicStore.Forms
             addNewEmployeeForm.ShowDialog();
             GetEmployees();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

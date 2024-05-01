@@ -106,5 +106,20 @@ namespace VinylMusicStore.Forms
                 MessageBox.Show("Не было добавлено ни одной поставки!");
             }
         }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams CP = base.CreateParams;
+                CP.ExStyle = CP.ExStyle | 0x2000000; // WS_EX_COMPOSITED
+                return CP;
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

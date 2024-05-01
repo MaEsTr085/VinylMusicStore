@@ -24,7 +24,7 @@ namespace VinylMusicStore.Forms
         {
             InitializeComponent();
 
-            gbCode.Visible = false;
+            pnlCode.Visible = false;
 
             code = GenCode();
         }
@@ -78,29 +78,7 @@ namespace VinylMusicStore.Forms
             if (!Char.IsDigit(number))
             {
                 e.Handled = true;
-            }
-
-            if (tbCheckNum1.Text != "" && tbCheckNum2.Text != "" && tbCheckNum3.Text != "" && tbCheckNum4.Text != "")
-            {
-                Thread.Sleep(500);
-
-                int curCode = int.Parse(tbCheckNum1.Text + tbCheckNum2.Text + tbCheckNum3.Text + tbCheckNum4.Text);
-                if (code == curCode)
-                {
-                    this.ActiveControl = null;
-
-                    Thread.Sleep(500);
-
-                    tbCheckNum1.BackColor = ColorTranslator.FromHtml("#37B537");
-                    tbCheckNum2.BackColor = ColorTranslator.FromHtml("#37B537");
-                    tbCheckNum3.BackColor = ColorTranslator.FromHtml("#37B537");
-                    tbCheckNum4.BackColor = ColorTranslator.FromHtml("#37B537");
-
-                    ChangePasswordForm changePasswordForm = new ChangePasswordForm(true);
-                    changePasswordForm.Show();
-                    this.Hide();
-                }
-            }
+            }            
         }
 
         private void RecoverPasswordForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -117,7 +95,7 @@ namespace VinylMusicStore.Forms
             AuthForm.currentUser = usersFromDB.GetUserByLogin(tbLogin.Text);
             if (AuthForm.currentUser != null)
             {
-                gbCode.Visible = true;
+                pnlCode.Visible = true;
 
                 SendEmail(code, tbEmail.Text, tbEtherealEmail.Text, tbEtherealPassword.Text).GetAwaiter();
 
@@ -163,6 +141,34 @@ namespace VinylMusicStore.Forms
                 await client.SendAsync(emailMessage);
 
                 await client.DisconnectAsync(true);
+            }
+        }
+
+        private void tbCheckNum4_TextChanged(object sender, EventArgs e)
+        {
+            if (tbCheckNum1.Text != "" && tbCheckNum2.Text != "" && tbCheckNum3.Text != "" && tbCheckNum4.Text != "")
+            {
+                int curCode = int.Parse(tbCheckNum1.Text + tbCheckNum2.Text + tbCheckNum3.Text + tbCheckNum4.Text);
+                if (code == curCode)
+                {
+                    Thread.Sleep(1000);
+
+                    tbCheckNum1.BackColor = ColorTranslator.FromHtml("#37B537");
+                    tbCheckNum2.BackColor = ColorTranslator.FromHtml("#37B537");
+                    tbCheckNum3.BackColor = ColorTranslator.FromHtml("#37B537");
+                    tbCheckNum4.BackColor = ColorTranslator.FromHtml("#37B537");
+
+                    tbCheckNum1.Refresh();
+                    tbCheckNum2.Refresh();
+                    tbCheckNum3.Refresh();
+                    tbCheckNum4.Refresh();
+
+                    Thread.Sleep(1000);
+
+                    ChangePasswordForm changePasswordForm = new ChangePasswordForm(true);
+                    changePasswordForm.Show();
+                    this.Hide();
+                }
             }
         }
     }

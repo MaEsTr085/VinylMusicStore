@@ -166,5 +166,20 @@ namespace VinylMusicStore.Forms
                 lblFullSum.Text = fullSum.ToString();
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams CP = base.CreateParams;
+                CP.ExStyle = CP.ExStyle | 0x2000000; // WS_EX_COMPOSITED
+                return CP;
+            }
+        }
     }
 }

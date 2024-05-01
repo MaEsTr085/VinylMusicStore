@@ -91,6 +91,37 @@ namespace VinylMusicStore.Model
             }
         }
 
+        public string GetPostByLogin(string login)
+        {
+            string post = "";
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(DBConnection.connectionStr))
+                {
+                    connection.Open();
+                    string sqlQuery = "select public.posts.post_name from public.posts inner join public.employees on public.employees.post = public.posts.id_post inner join public.users on public.users.employee = public.employees.emp_id group by public.posts.post_name, public.users.user_login having public.users.user_login = @login";
+                    NpgsqlCommand command = new NpgsqlCommand(sqlQuery, connection);
+                    command.Parameters.AddWithValue("login", login);
+
+                    NpgsqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            post = reader[0].ToString();
+                        }
+                    }
+                    reader.Close();
+                    return post;
+                }
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return post;
+            }
+        }
+
         public string GetUserById(int id)
         {
             string employee = null;

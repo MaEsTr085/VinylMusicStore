@@ -29,7 +29,7 @@ namespace VinylMusicStore.Model
                     {
                         while (reader.Read())
                         {
-                            albums.Add(new Album((int)reader[0], reader[1].ToString(), reader[2].ToString(), (int)reader[3], reader[4].ToString(), (int)reader[5], (int)reader[6], reader[7].ToString(), reader[8].ToString()));
+                            albums.Add(new Album((int)reader[0], reader[1].ToString(), reader[2].ToString(), (int)reader[3], reader[4].ToString(), reader[5].ToString(), (int)reader[6], (int)reader[7], reader[8].ToString(), reader[9].ToString()));
                         }
                         return albums;
                     }

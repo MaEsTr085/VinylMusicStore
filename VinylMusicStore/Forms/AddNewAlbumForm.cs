@@ -332,5 +332,10 @@ namespace VinylMusicStore.Forms
         {
             tcNewAlbum.SelectedTab = tcNewAlbum.TabPages["albumTabPage"];
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

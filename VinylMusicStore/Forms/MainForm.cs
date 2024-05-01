@@ -22,6 +22,7 @@ namespace VinylMusicStore
         public static Album album;
 
         private bool isClosed;
+        private string curPost = "";
 
         public MainForm()
         {
@@ -32,21 +33,56 @@ namespace VinylMusicStore
             dgvAlbums.Columns[2].DataPropertyName = "Artist";
             dgvAlbums.Columns[3].DataPropertyName = "AlbumCount";
             dgvAlbums.Columns[4].DataPropertyName = "Label";
-            dgvAlbums.Columns[5].DataPropertyName = "YearOfAlbum";
-            dgvAlbums.Columns[6].DataPropertyName = "YearOfRelease";
-            dgvAlbums.Columns[7].DataPropertyName = "Genre";
-            dgvAlbums.Columns[8].DataPropertyName = "Image";
+            dgvAlbums.Columns[5].DataPropertyName = "Country";
+            dgvAlbums.Columns[6].DataPropertyName = "YearOfAlbum";
+            dgvAlbums.Columns[7].DataPropertyName = "YearOfRelease";
+            dgvAlbums.Columns[8].DataPropertyName = "Genre";
+            dgvAlbums.Columns[9].DataPropertyName = "Image";
 
             dgvAlbums.Columns[0].Visible = false;
-            dgvAlbums.Columns[4].Visible = false;
+            dgvAlbums.Columns[4].Visible = false; 
             dgvAlbums.Columns[5].Visible = false;
             dgvAlbums.Columns[6].Visible = false;
             dgvAlbums.Columns[7].Visible = false;
             dgvAlbums.Columns[8].Visible = false;
+            dgvAlbums.Columns[9].Visible = false;
 
             lblAlbumName.Visible = false;
             lblArtist.Visible = false;
             lblPrice.Visible = false;
+
+            curPost = usersFromDB.GetPostByLogin(AuthForm.currentUser.Login);
+
+            switch (curPost)
+            {
+                case "Продавец-консультант":
+                    ToolStripMenuItemAlbum.Visible = false;
+                    ToolStripMenuItemSupply.Visible = false;
+                    ToolStripMenuItemAllUsers.Visible = false;
+                    break;
+                case "Менеджер по продажам":
+                    ToolStripMenuItemTracks.Visible = false;
+                    ToolStripMenuItemAlbum.Visible = false;
+                    ToolStripMenuItemAllUsers.Visible = false;
+                    ToolStripMenuItemArtists.Visible = false;
+                    ToolStripMenuItemGenres.Visible = false;
+                    ToolStripMenuItemLabels.Visible = false;
+                    break;
+                case "Специалист по обработке поставок":
+                    ToolStripMenuItemTracks.Visible = false;
+                    ToolStripMenuItemAlbum.Visible = false;
+                    ToolStripMenuItemAllUsers.Visible = false;
+                    ToolStripMenuItemArtists.Visible = false;
+                    ToolStripMenuItemGenres.Visible = false;
+                    ToolStripMenuItemLabels.Visible = false;
+                    ToolStripMenuItemReceipt.Visible = false;
+                    break;
+                case "Технический специалист":
+                    ToolStripMenuItemAllUsers.Visible = false;
+                    ToolStripMenuItemReceipt.Visible = false;
+                    ToolStripMenuItemSupply.Visible = false;
+                    break;
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -116,13 +152,13 @@ namespace VinylMusicStore
 
         private void dgvAlbums_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                var hti = dgvAlbums.HitTest(e.X, e.Y);
-                dgvAlbums.ClearSelection();
-                dgvAlbums.Rows[hti.RowIndex].Selected = true;
-                MessageBox.Show(dgvAlbums.CurrentRow.Index.ToString());
-            }
+            //if (e.Button == MouseButtons.Right)
+            //{
+            //    var hti = dgvAlbums.HitTest(e.X, e.Y);
+            //    dgvAlbums.ClearSelection();
+            //    dgvAlbums.Rows[hti.RowIndex].Selected = true;
+            //    MessageBox.Show(dgvAlbums.CurrentRow.Index.ToString());
+            //}
         }
 
         private void ToolStripMenuItemAddSupply_Click(object sender, EventArgs e)
@@ -186,6 +222,27 @@ namespace VinylMusicStore
         private void ToolStripMenuItemExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void ToolStripMenuItemViewReceips_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToolStripMenuItemAddNewAlbum_Click(object sender, EventArgs e)
+        {
+            AddNewAlbumForm addNewAlbumForm = new AddNewAlbumForm();
+            addNewAlbumForm.Show();
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams CP = base.CreateParams;
+                CP.ExStyle = CP.ExStyle | 0x2000000; // WS_EX_COMPOSITED
+                return CP;
+            }
         }
     }
 }

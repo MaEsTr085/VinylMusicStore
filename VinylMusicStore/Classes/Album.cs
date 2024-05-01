@@ -14,18 +14,20 @@ namespace VinylMusicStore.Classes
         public string Artist { get; set; }
         public int AlbumCount { get; set; }
         public string Label { get; set; }
+        public string Country { get; set; }
         public int YearOfAlbum { get; set; }
         public int YearOfRelease { get; set; }
         public string Genre { get; set; }
         public Image Image { get; set; }
 
-        public Album(int idAlbum, string albumName, string artist, int albumCount, string label, int yearOfAlbum, int yearOfRelease, string genre, string image)
+        public Album(int idAlbum, string albumName, string artist, int albumCount, string label, string country, int yearOfAlbum, int yearOfRelease, string genre, string image)
         {
             IdAlbum = idAlbum;
             AlbumName = albumName;
             Artist = artist;
             AlbumCount = albumCount;
             Label = label;
+            Country = country;
             YearOfAlbum = yearOfAlbum;
             YearOfRelease = yearOfRelease;
             Genre = genre;
