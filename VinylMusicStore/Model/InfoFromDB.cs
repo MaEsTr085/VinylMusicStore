@@ -11,6 +11,38 @@ namespace VinylMusicStore.Model
 {
     internal class InfoFromDB
     {
+        public List<string> GetAlbums()
+        {
+            List<string> albums = new List<string>();
+
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(DBConnection.connectionStr))
+                {
+                    connection.Open();
+                    string sqlQuery = "select album from public.catalogs group by album order by album asc";
+                    NpgsqlCommand command = new NpgsqlCommand(sqlQuery, connection);
+                    NpgsqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            albums.Add(reader[0].ToString());
+                        }
+                        return albums;
+                    }
+                    reader.Close();
+                    return albums;
+                }
+            }
+            catch (NpgsqlException e)
+            {
+                MessageBox.Show(e.Message);
+                return albums;
+            }
+        }
+
         public List<string> GetArtistsForAlbum()
         {
             List<string> artists = new List<string>();

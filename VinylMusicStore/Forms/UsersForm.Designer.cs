@@ -355,6 +355,7 @@
             this.lblSurname.AutoSize = true;
             this.lblSurname.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblSurname.Location = new System.Drawing.Point(182, 57);
+            this.lblSurname.MaximumSize = new System.Drawing.Size(150, 0);
             this.lblSurname.MinimumSize = new System.Drawing.Size(150, 0);
             this.lblSurname.Name = "lblSurname";
             this.lblSurname.Size = new System.Drawing.Size(150, 18);
@@ -366,6 +367,7 @@
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblName.Location = new System.Drawing.Point(182, 96);
+            this.lblName.MaximumSize = new System.Drawing.Size(150, 0);
             this.lblName.MinimumSize = new System.Drawing.Size(150, 0);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(150, 18);
@@ -377,6 +379,7 @@
             this.lblPatronymic.AutoSize = true;
             this.lblPatronymic.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblPatronymic.Location = new System.Drawing.Point(182, 135);
+            this.lblPatronymic.MaximumSize = new System.Drawing.Size(150, 0);
             this.lblPatronymic.MinimumSize = new System.Drawing.Size(150, 0);
             this.lblPatronymic.Name = "lblPatronymic";
             this.lblPatronymic.Size = new System.Drawing.Size(150, 18);
@@ -388,6 +391,7 @@
             this.lblLogin.AutoSize = true;
             this.lblLogin.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblLogin.Location = new System.Drawing.Point(182, 174);
+            this.lblLogin.MaximumSize = new System.Drawing.Size(150, 0);
             this.lblLogin.MinimumSize = new System.Drawing.Size(150, 0);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(150, 18);
@@ -399,6 +403,7 @@
             this.lblPost.AutoSize = true;
             this.lblPost.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblPost.Location = new System.Drawing.Point(182, 213);
+            this.lblPost.MaximumSize = new System.Drawing.Size(150, 0);
             this.lblPost.MinimumSize = new System.Drawing.Size(150, 0);
             this.lblPost.Name = "lblPost";
             this.lblPost.Size = new System.Drawing.Size(150, 18);
@@ -410,6 +415,7 @@
             this.lblWorkExp.AutoSize = true;
             this.lblWorkExp.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblWorkExp.Location = new System.Drawing.Point(182, 252);
+            this.lblWorkExp.MaximumSize = new System.Drawing.Size(150, 0);
             this.lblWorkExp.MinimumSize = new System.Drawing.Size(150, 0);
             this.lblWorkExp.Name = "lblWorkExp";
             this.lblWorkExp.Size = new System.Drawing.Size(150, 18);
@@ -421,6 +427,7 @@
             this.lblStartDate.AutoSize = true;
             this.lblStartDate.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblStartDate.Location = new System.Drawing.Point(182, 300);
+            this.lblStartDate.MaximumSize = new System.Drawing.Size(150, 0);
             this.lblStartDate.MinimumSize = new System.Drawing.Size(150, 0);
             this.lblStartDate.Name = "lblStartDate";
             this.lblStartDate.Size = new System.Drawing.Size(150, 18);
@@ -432,6 +439,7 @@
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblPhone.Location = new System.Drawing.Point(182, 348);
+            this.lblPhone.MaximumSize = new System.Drawing.Size(150, 0);
             this.lblPhone.MinimumSize = new System.Drawing.Size(150, 0);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(150, 18);
@@ -516,6 +524,7 @@
             this.MinimumSize = new System.Drawing.Size(851, 598);
             this.Name = "UsersForm";
             this.Text = "Пользователи";
+            this.Activated += new System.EventHandler(this.UsersForm_Activated);
             this.Load += new System.EventHandler(this.UsersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
             this.panel1.ResumeLayout(false);

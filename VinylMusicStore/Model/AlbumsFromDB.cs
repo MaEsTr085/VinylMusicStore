@@ -136,5 +136,28 @@ namespace VinylMusicStore.Model
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void UpdateAlbumImage(string album, string label, string country, string image)
+        {
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(DBConnection.connectionStr))
+                {
+                    connection.Open();
+                    string sqlQuery = "call update_album_image(@album, @label, @country, @image)";
+                    NpgsqlCommand command = new NpgsqlCommand(sqlQuery, connection);
+                    command.Parameters.AddWithValue("album", album);
+                    command.Parameters.AddWithValue("label", label);
+                    command.Parameters.AddWithValue("country", country);
+                    command.Parameters.AddWithValue("image", image);
+
+                    int i = command.ExecuteNonQuery();
+                }
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MessagingToolkit.QRCode.Codec.Util;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +24,7 @@ namespace VinylMusicStore
         public static Album album;
 
         private bool isClosed;
-        private string curPost = "";
+        private static string curPost = "";
 
         public MainForm()
         {
@@ -40,16 +42,12 @@ namespace VinylMusicStore
             dgvAlbums.Columns[9].DataPropertyName = "Image";
 
             dgvAlbums.Columns[0].Visible = false;
-            dgvAlbums.Columns[4].Visible = false; 
+            dgvAlbums.Columns[4].Visible = false;
             dgvAlbums.Columns[5].Visible = false;
             dgvAlbums.Columns[6].Visible = false;
             dgvAlbums.Columns[7].Visible = false;
             dgvAlbums.Columns[8].Visible = false;
             dgvAlbums.Columns[9].Visible = false;
-
-            lblAlbumName.Visible = false;
-            lblArtist.Visible = false;
-            lblPrice.Visible = false;
 
             curPost = usersFromDB.GetPostByLogin(AuthForm.currentUser.Login);
 
@@ -59,23 +57,21 @@ namespace VinylMusicStore
                     ToolStripMenuItemAlbum.Visible = false;
                     ToolStripMenuItemSupply.Visible = false;
                     ToolStripMenuItemAllUsers.Visible = false;
+                    ToolStripMenuItemAddTracks.Visible = false;
+                    ToolStripMenuItemViewReceips.Visible = false;
                     break;
                 case "Менеджер по продажам":
-                    ToolStripMenuItemTracks.Visible = false;
                     ToolStripMenuItemAlbum.Visible = false;
                     ToolStripMenuItemAllUsers.Visible = false;
-                    ToolStripMenuItemArtists.Visible = false;
-                    ToolStripMenuItemGenres.Visible = false;
-                    ToolStripMenuItemLabels.Visible = false;
+                    ToolStripMenuItemAddTracks.Visible = false;
+                    ToolStripMenuItemAddSupply.Visible = false;
+                    ToolStripMenuItemCreateReceipt.Visible = false;
                     break;
                 case "Специалист по обработке поставок":
-                    ToolStripMenuItemTracks.Visible = false;
                     ToolStripMenuItemAlbum.Visible = false;
                     ToolStripMenuItemAllUsers.Visible = false;
-                    ToolStripMenuItemArtists.Visible = false;
-                    ToolStripMenuItemGenres.Visible = false;
-                    ToolStripMenuItemLabels.Visible = false;
                     ToolStripMenuItemReceipt.Visible = false;
+                    ToolStripMenuItemAddTracks.Visible = false;
                     break;
                 case "Технический специалист":
                     ToolStripMenuItemAllUsers.Visible = false;
@@ -88,16 +84,24 @@ namespace VinylMusicStore
         private void MainForm_Load(object sender, EventArgs e)
         {
             GetAlbums();
-            Bitmap image = new Bitmap(@"..\..\Images\vinyl.png");
-            pbAlbum.Image = image;
+            //Bitmap image = new Bitmap(@"..\..\Images\vinyl.png");
+            pbAlbum.Image = new Bitmap(albums[0].Image);
 
             lblCurUser.Text = usersFromDB.GetUserById(AuthForm.currentUser.Employee);
-        }
+
+            lblAlbumName.Text = albums[0].AlbumName;
+            lblArtist.Text = albums[0].Artist;
+            lblPrice.Text = albumsFromDB.GetAlbumPrice(albums[0].AlbumName, albums[0].Label).ToString();
+            if (albums[0].AlbumCount > 0)
+                lblInstock.Text = albums[0].AlbumCount.ToString();
+            else
+                lblInstock.Text = "Нет в наличии";
+        }   
 
         private void GetAlbums()
         {
             albums = albumsFromDB.GetAlbums();
-            dgvAlbums.DataSource = albums;                
+            dgvAlbums.DataSource = albums;
         }
 
         private void dgvAlbums_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -108,12 +112,6 @@ namespace VinylMusicStore
 
             AlbumForm albumForm = new AlbumForm();
             albumForm.Show();
-        }
-
-        private void ToolStripMenuItemTracks_Click(object sender, EventArgs e)
-        {
-            TracksForm tracksForm = new TracksForm();
-            tracksForm.Show();
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -130,13 +128,13 @@ namespace VinylMusicStore
 
             pbAlbum.Image = album.Image;
 
-            lblAlbumName.Visible = true;
-            lblArtist.Visible = true;
-            lblPrice.Visible = true;
-
             lblAlbumName.Text = album.AlbumName;
             lblArtist.Text = album.Artist;
             lblPrice.Text = albumsFromDB.GetAlbumPrice(album.AlbumName, album.Label).ToString();
+            if (album.AlbumCount > 0)
+                lblInstock.Text = album.AlbumCount.ToString();
+            else
+                lblInstock.Text = "Нет в наличии";
         }
 
         private void ToolStripMenuItemCreateReceipt_Click(object sender, EventArgs e)
@@ -163,8 +161,8 @@ namespace VinylMusicStore
 
         private void ToolStripMenuItemAddSupply_Click(object sender, EventArgs e)
         {
-            SupplyForm supplyForm = new SupplyForm();
-            supplyForm.Show();
+            AddSupplyForm addSupplyForm = new AddSupplyForm();
+            addSupplyForm.Show();
         }
 
         private void ToolStripMenuItemViewSupply_Click(object sender, EventArgs e)
@@ -226,7 +224,8 @@ namespace VinylMusicStore
 
         private void ToolStripMenuItemViewReceips_Click(object sender, EventArgs e)
         {
-
+            AllReceiptsForm allReceiptsForm = new AllReceiptsForm();
+            allReceiptsForm.Show();
         }
 
         private void ToolStripMenuItemAddNewAlbum_Click(object sender, EventArgs e)
@@ -242,6 +241,31 @@ namespace VinylMusicStore
                 CreateParams CP = base.CreateParams;
                 CP.ExStyle = CP.ExStyle | 0x2000000; // WS_EX_COMPOSITED
                 return CP;
+            }
+        }
+
+        private void ToolStripMenuItemAddTracks_Click(object sender, EventArgs e)
+        {
+            AddTracksForm addTracksForm = new AddTracksForm();
+            addTracksForm.Show();
+        }
+
+        private void ToolStripMenuItemAllTracks_Click(object sender, EventArgs e)
+        {
+            TracksForm tracksForm = new TracksForm();
+            tracksForm.Show();
+        }
+
+        private void dgvAlbums_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                int selectedRowIndex = dgvAlbums.CurrentRow.Index;
+
+                album = albums[selectedRowIndex];
+
+                AlbumForm albumForm = new AlbumForm(true);
+                albumForm.Show();
             }
         }
     }

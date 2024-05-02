@@ -128,7 +128,6 @@
             this.tbCheckNum4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbCheckNum4.TextChanged += new System.EventHandler(this.tbCheckNum4_TextChanged);
             this.tbCheckNum4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCheckNum4_KeyPress);
-            this.tbCheckNum4.Leave += new System.EventHandler(this.tbCheckNum4_Leave);
             // 
             // tbCheckNum3
             // 

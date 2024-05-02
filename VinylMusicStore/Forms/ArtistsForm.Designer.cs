@@ -161,6 +161,7 @@
             this.MinimumSize = new System.Drawing.Size(517, 408);
             this.Name = "ArtistsForm";
             this.Text = "Исполнители";
+            this.Activated += new System.EventHandler(this.ArtistsForm_Activated);
             this.Load += new System.EventHandler(this.ArtistsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArtists)).EndInit();
             this.ResumeLayout(false);

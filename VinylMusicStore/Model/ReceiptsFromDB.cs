@@ -12,6 +12,38 @@ namespace VinylMusicStore.Model
 {
     internal class ReceiptsFromDB
     {
+        public List<Receipt> GetReceipts()
+        {
+            List<Receipt> receipts = new List<Receipt>();
+
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(DBConnection.connectionStr))
+                {
+                    connection.Open();
+                    string sqlQuery = "select * from public.receipts";
+                    NpgsqlCommand command = new NpgsqlCommand(sqlQuery, connection);
+                    NpgsqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            receipts.Add(new Receipt((int)reader[0], reader[1].ToString(), double.Parse(reader[2].ToString()), (int)reader[3], reader[4].ToString(), reader[5].ToString(), reader[6].ToString()));
+                        }
+                        return receipts;
+                    }
+                    reader.Close();
+                    return receipts;
+                }
+            }
+            catch (NpgsqlException e)
+            {
+                MessageBox.Show(e.Message);
+                return receipts;
+            }
+        }
+
         public int GetMaxReceiptNum()
         {
             int maxNum = 0;

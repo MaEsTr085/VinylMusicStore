@@ -314,6 +314,7 @@
             this.cbPosts.Name = "cbPosts";
             this.cbPosts.Size = new System.Drawing.Size(171, 26);
             this.cbPosts.TabIndex = 24;
+            this.cbPosts.SelectedIndexChanged += new System.EventHandler(this.cbPosts_SelectedIndexChanged);
             // 
             // label8
             // 

@@ -34,5 +34,37 @@ namespace VinylMusicStore.Model
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public List<Supply> GetSupplies()
+        {
+            List<Supply> supplies = new List<Supply>();
+
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(DBConnection.connectionStr))
+                {
+                    connection.Open();
+                    string sqlQuery = "select * from get_supplies";
+                    NpgsqlCommand command = new NpgsqlCommand(sqlQuery, connection);
+                    NpgsqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            supplies.Add(new Supply((int)reader[0], (DateTime)reader[1], reader[2].ToString(), reader[3].ToString(), (int)reader[4]));
+                        }
+                        return supplies;
+                    }
+                    reader.Close();
+                    return supplies;
+                }
+            }
+            catch (NpgsqlException e)
+            {
+                MessageBox.Show(e.Message);
+                return supplies;
+            }
+        }
     }
 }

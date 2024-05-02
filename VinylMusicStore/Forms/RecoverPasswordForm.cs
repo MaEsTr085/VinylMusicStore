@@ -25,8 +25,6 @@ namespace VinylMusicStore.Forms
             InitializeComponent();
 
             pnlCode.Visible = false;
-
-            code = GenCode();
         }
 
         private void tbCheckNum1_KeyPress(object sender, KeyPressEventArgs e)
@@ -86,15 +84,13 @@ namespace VinylMusicStore.Forms
             Application.Exit();
         }
 
-        private void tbCheckNum4_Leave(object sender, EventArgs e)
-        {
-        }
-
         private void btnSendCode_Click(object sender, EventArgs e)
         {
             AuthForm.currentUser = usersFromDB.GetUserByLogin(tbLogin.Text);
             if (AuthForm.currentUser != null)
             {
+                code = GenCode();
+
                 pnlCode.Visible = true;
 
                 SendEmail(code, tbEmail.Text, tbEtherealEmail.Text, tbEtherealPassword.Text).GetAwaiter();
@@ -168,6 +164,37 @@ namespace VinylMusicStore.Forms
                     ChangePasswordForm changePasswordForm = new ChangePasswordForm(true);
                     changePasswordForm.Show();
                     this.Hide();
+                } else
+                {
+                    Thread.Sleep(1000);
+
+                    tbCheckNum1.BackColor = ColorTranslator.FromHtml("#9C0000");
+                    tbCheckNum2.BackColor = ColorTranslator.FromHtml("#9C0000");
+                    tbCheckNum3.BackColor = ColorTranslator.FromHtml("#9C0000");
+                    tbCheckNum4.BackColor = ColorTranslator.FromHtml("#9C0000");
+
+                    tbCheckNum1.Refresh();
+                    tbCheckNum2.Refresh();
+                    tbCheckNum3.Refresh();
+                    tbCheckNum4.Refresh();
+
+                    Thread.Sleep(1000);
+
+
+                    tbCheckNum1.BackColor = Color.IndianRed;
+                    tbCheckNum2.BackColor = Color.IndianRed;
+                    tbCheckNum3.BackColor = Color.IndianRed;
+                    tbCheckNum4.BackColor = Color.IndianRed;
+
+                    tbCheckNum1.Refresh();
+                    tbCheckNum2.Refresh();
+                    tbCheckNum3.Refresh();
+                    tbCheckNum4.Refresh();
+
+                    tbCheckNum1.Text = "";
+                    tbCheckNum2.Text = "";
+                    tbCheckNum3.Text = "";
+                    tbCheckNum4.Text = "";
                 }
             }
         }

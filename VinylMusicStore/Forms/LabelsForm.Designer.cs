@@ -160,6 +160,7 @@
             this.MinimumSize = new System.Drawing.Size(517, 408);
             this.Name = "LabelsForm";
             this.Text = "Лейблы";
+            this.Activated += new System.EventHandler(this.LabelsForm_Activated);
             this.Load += new System.EventHandler(this.LabelsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLabels)).EndInit();
             this.ResumeLayout(false);

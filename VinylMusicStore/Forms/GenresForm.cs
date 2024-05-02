@@ -48,5 +48,11 @@ namespace VinylMusicStore.Forms
         {
             this.Close();
         }
+
+        private void GenresForm_Activated(object sender, EventArgs e)
+        {
+            genres = infoFromDB.GetGenres();
+            dgvGenres.DataSource = genres;
+        }
     }
 }

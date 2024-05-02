@@ -153,6 +153,7 @@
             this.MinimumSize = new System.Drawing.Size(517, 408);
             this.Name = "GenresForm";
             this.Text = "Жанры";
+            this.Activated += new System.EventHandler(this.GenresForm_Activated);
             this.Load += new System.EventHandler(this.GenresForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenres)).EndInit();
             this.ResumeLayout(false);

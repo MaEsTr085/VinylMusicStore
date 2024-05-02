@@ -93,5 +93,31 @@ namespace VinylMusicStore.Forms
         {
             this.Close();
         }
+
+        private void cbPosts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (posts[posts.IndexOf((Post)cbPosts.SelectedItem)].HasUser)
+            {
+                tbLogin.Enabled = true;
+                tbPassword.Enabled = true;
+
+                tbLogin.BackColor = Color.IndianRed;
+                tbPassword.BackColor = Color.IndianRed;
+
+                tbLogin.Refresh();
+                tbPassword.Refresh();
+            }
+            else
+            {
+                tbLogin.Enabled = false;
+                tbPassword.Enabled = false;
+
+                tbLogin.BackColor = Color.Maroon; 
+                tbPassword.BackColor = Color.Maroon;
+
+                tbLogin.Refresh();
+                tbPassword.Refresh();
+            }
+        }
     }
 }

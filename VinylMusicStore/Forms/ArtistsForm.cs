@@ -48,5 +48,11 @@ namespace VinylMusicStore.Forms
         {
             this.Close();
         }
+
+        private void ArtistsForm_Activated(object sender, EventArgs e)
+        {
+            artists = infoFromDB.GetArtists();
+            dgvArtists.DataSource = artists;
+        }
     }
 }

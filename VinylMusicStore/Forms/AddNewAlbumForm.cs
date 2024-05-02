@@ -15,11 +15,11 @@ namespace VinylMusicStore.Forms
 {
     public partial class AddNewAlbumForm : Form
     {
-        List<string> items = new List<string>();
-
         AlbumsFromDB albumsFromDB = new AlbumsFromDB();
         TracksFromDB tracksFromDB = new TracksFromDB();
         InfoFromDB infoFromDB = new InfoFromDB();
+
+        List<string> items = new List<string>();
 
         public enum Control
         {

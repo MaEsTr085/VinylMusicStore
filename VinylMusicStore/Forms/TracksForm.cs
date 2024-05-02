@@ -40,6 +40,17 @@ namespace VinylMusicStore.Forms
             GetTracks();
         }
 
+        private void TracksForm_Activated(object sender, EventArgs e)
+        {
+            GetTracks();
+        }
+
+        private void btnAddTracks_Click(object sender, EventArgs e)
+        {
+            AddTracksForm addTracksForm = new AddTracksForm();
+            addTracksForm.Show();
+        }
+
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();

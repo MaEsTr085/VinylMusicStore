@@ -48,5 +48,11 @@ namespace VinylMusicStore.Forms
         {
             this.Close();
         }
+
+        private void LabelsForm_Activated(object sender, EventArgs e)
+        {
+            labels = infoFromDB.GetLabels();
+            dgvLabels.DataSource = labels;
+        }
     }
 }

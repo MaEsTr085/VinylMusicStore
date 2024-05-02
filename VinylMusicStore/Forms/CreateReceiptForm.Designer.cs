@@ -54,8 +54,8 @@
             this.lblSum = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnBack = new System.Windows.Forms.Button();
             this.cbAlbum = new System.Windows.Forms.ComboBox();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReceipt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCount)).BeginInit();
             this.panel2.SuspendLayout();
@@ -95,8 +95,8 @@
             this.dgvReceipt.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvReceipt.EnableHeadersVisualStyles = false;
             this.dgvReceipt.GridColor = System.Drawing.Color.Firebrick;
-            this.dgvReceipt.Location = new System.Drawing.Point(357, 28);
-            this.dgvReceipt.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvReceipt.Location = new System.Drawing.Point(476, 34);
+            this.dgvReceipt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvReceipt.MultiSelect = false;
             this.dgvReceipt.Name = "dgvReceipt";
             this.dgvReceipt.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -114,7 +114,7 @@
             this.dgvReceipt.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvReceipt.RowTemplate.Height = 24;
             this.dgvReceipt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReceipt.Size = new System.Drawing.Size(332, 345);
+            this.dgvReceipt.Size = new System.Drawing.Size(443, 425);
             this.dgvReceipt.TabIndex = 0;
             // 
             // Album
@@ -153,10 +153,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Concert One", 11.25F);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(74, 14);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(108, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 18);
+            this.label1.Size = new System.Drawing.Size(188, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "Добавление состава";
             // 
@@ -166,10 +165,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Concert One", 11.25F);
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(44, 50);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(59, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 18);
+            this.label2.Size = new System.Drawing.Size(74, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "Альбом";
             // 
@@ -180,10 +178,10 @@
             this.cbLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
             this.cbLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.cbLabel.FormattingEnabled = true;
-            this.cbLabel.Location = new System.Drawing.Point(126, 87);
-            this.cbLabel.Margin = new System.Windows.Forms.Padding(2);
+            this.cbLabel.Location = new System.Drawing.Point(168, 107);
+            this.cbLabel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbLabel.Name = "cbLabel";
-            this.cbLabel.Size = new System.Drawing.Size(163, 26);
+            this.cbLabel.Size = new System.Drawing.Size(216, 31);
             this.cbLabel.Sorted = true;
             this.cbLabel.TabIndex = 2;
             this.cbLabel.SelectedIndexChanged += new System.EventHandler(this.cbLabel_SelectedIndexChanged);
@@ -194,10 +192,9 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Concert One", 11.25F);
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(54, 90);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(72, 111);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 18);
+            this.label3.Size = new System.Drawing.Size(62, 23);
             this.label3.TabIndex = 1;
             this.label3.Text = "Лейбл";
             // 
@@ -207,10 +204,9 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Concert One", 11.25F);
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(15, 130);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(20, 160);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 18);
+            this.label4.Size = new System.Drawing.Size(110, 23);
             this.label4.TabIndex = 1;
             this.label4.Text = "Количество";
             // 
@@ -220,15 +216,15 @@
             this.numCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numCount.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
             this.numCount.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.numCount.Location = new System.Drawing.Point(126, 131);
-            this.numCount.Margin = new System.Windows.Forms.Padding(2);
+            this.numCount.Location = new System.Drawing.Point(168, 161);
+            this.numCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numCount.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numCount.Name = "numCount";
-            this.numCount.Size = new System.Drawing.Size(163, 22);
+            this.numCount.Size = new System.Drawing.Size(217, 26);
             this.numCount.TabIndex = 3;
             this.numCount.Value = new decimal(new int[] {
             1,
@@ -243,10 +239,9 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Concert One", 11.25F);
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(94, 178);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(125, 219);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 36);
+            this.label5.Size = new System.Drawing.Size(103, 46);
             this.label5.TabIndex = 1;
             this.label5.Text = "Стоимость\r\nальбома";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -256,10 +251,9 @@
             this.lblAlbumPrice.AutoSize = true;
             this.lblAlbumPrice.BackColor = System.Drawing.Color.Transparent;
             this.lblAlbumPrice.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lblAlbumPrice.Location = new System.Drawing.Point(194, 187);
-            this.lblAlbumPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAlbumPrice.Location = new System.Drawing.Point(259, 230);
             this.lblAlbumPrice.Name = "lblAlbumPrice";
-            this.lblAlbumPrice.Size = new System.Drawing.Size(16, 18);
+            this.lblAlbumPrice.Size = new System.Drawing.Size(21, 23);
             this.lblAlbumPrice.TabIndex = 1;
             this.lblAlbumPrice.Text = "0";
             // 
@@ -271,10 +265,10 @@
             this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(16)))), ((int)(((byte)(0)))));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Comfortaa", 8.999999F, System.Drawing.FontStyle.Bold);
-            this.btnAdd.Location = new System.Drawing.Point(90, 281);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdd.Location = new System.Drawing.Point(119, 346);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(125, 36);
+            this.btnAdd.Size = new System.Drawing.Size(167, 44);
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Добавить";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -290,10 +284,10 @@
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDel.Font = new System.Drawing.Font("Comfortaa", 8.999999F, System.Drawing.FontStyle.Bold);
             this.btnDel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDel.Location = new System.Drawing.Point(549, 377);
-            this.btnDel.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDel.Location = new System.Drawing.Point(732, 464);
+            this.btnDel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(140, 41);
+            this.btnDel.Size = new System.Drawing.Size(187, 50);
             this.btnDel.TabIndex = 5;
             this.btnDel.Text = "Удалить строку";
             this.btnDel.UseVisualStyleBackColor = false;
@@ -310,10 +304,10 @@
             this.btnCreateReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateReceipt.Font = new System.Drawing.Font("Comfortaa", 8.999999F, System.Drawing.FontStyle.Bold);
             this.btnCreateReceipt.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCreateReceipt.Location = new System.Drawing.Point(261, 437);
-            this.btnCreateReceipt.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCreateReceipt.Location = new System.Drawing.Point(348, 538);
+            this.btnCreateReceipt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreateReceipt.Name = "btnCreateReceipt";
-            this.btnCreateReceipt.Size = new System.Drawing.Size(183, 55);
+            this.btnCreateReceipt.Size = new System.Drawing.Size(244, 68);
             this.btnCreateReceipt.TabIndex = 6;
             this.btnCreateReceipt.Text = "Создать чек";
             this.btnCreateReceipt.UseVisualStyleBackColor = false;
@@ -326,10 +320,9 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Concert One", 11.25F);
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(27, 395);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(36, 486);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(125, 18);
+            this.label9.Size = new System.Drawing.Size(147, 23);
             this.label9.TabIndex = 1;
             this.label9.Text = "Сумма к оплате";
             // 
@@ -340,10 +333,9 @@
             this.lblFullSum.BackColor = System.Drawing.Color.Transparent;
             this.lblFullSum.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblFullSum.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblFullSum.Location = new System.Drawing.Point(156, 395);
-            this.lblFullSum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFullSum.Location = new System.Drawing.Point(208, 486);
             this.lblFullSum.Name = "lblFullSum";
-            this.lblFullSum.Size = new System.Drawing.Size(16, 18);
+            this.lblFullSum.Size = new System.Drawing.Size(21, 23);
             this.lblFullSum.TabIndex = 1;
             this.lblFullSum.Text = "0";
             // 
@@ -352,10 +344,9 @@
             this.lblSum.AutoSize = true;
             this.lblSum.BackColor = System.Drawing.Color.Transparent;
             this.lblSum.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lblSum.Location = new System.Drawing.Point(194, 232);
-            this.lblSum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSum.Location = new System.Drawing.Point(259, 286);
             this.lblSum.Name = "lblSum";
-            this.lblSum.Size = new System.Drawing.Size(16, 18);
+            this.lblSum.Size = new System.Drawing.Size(21, 23);
             this.lblSum.TabIndex = 1;
             this.lblSum.Text = "0";
             // 
@@ -365,10 +356,9 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Concert One", 11.25F);
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(94, 232);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(125, 286);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 18);
+            this.label6.Size = new System.Drawing.Size(103, 23);
             this.label6.TabIndex = 1;
             this.label6.Text = "Стоимость";
             // 
@@ -391,10 +381,26 @@
             this.panel2.Controls.Add(this.cbLabel);
             this.panel2.Font = new System.Drawing.Font("Concert One", 11.25F);
             this.panel2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel2.Location = new System.Drawing.Point(30, 28);
+            this.panel2.Location = new System.Drawing.Point(40, 34);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(304, 345);
+            this.panel2.Size = new System.Drawing.Size(405, 425);
             this.panel2.TabIndex = 7;
+            // 
+            // cbAlbum
+            // 
+            this.cbAlbum.BackColor = System.Drawing.Color.IndianRed;
+            this.cbAlbum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbAlbum.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
+            this.cbAlbum.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cbAlbum.FormattingEnabled = true;
+            this.cbAlbum.Location = new System.Drawing.Point(168, 58);
+            this.cbAlbum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbAlbum.Name = "cbAlbum";
+            this.cbAlbum.Size = new System.Drawing.Size(216, 31);
+            this.cbAlbum.Sorted = true;
+            this.cbAlbum.TabIndex = 1;
+            this.cbAlbum.SelectedIndexChanged += new System.EventHandler(this.cbAlbum_SelectedIndexChanged);
             // 
             // btnBack
             // 
@@ -406,36 +412,22 @@
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Comfortaa", 8.999999F, System.Drawing.FontStyle.Bold);
             this.btnBack.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnBack.Location = new System.Drawing.Point(12, 455);
+            this.btnBack.Location = new System.Drawing.Point(16, 560);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(103, 36);
+            this.btnBack.Size = new System.Drawing.Size(137, 44);
             this.btnBack.TabIndex = 7;
             this.btnBack.Text = "Назад";
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // cbAlbum
-            // 
-            this.cbAlbum.BackColor = System.Drawing.Color.IndianRed;
-            this.cbAlbum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbAlbum.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
-            this.cbAlbum.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cbAlbum.FormattingEnabled = true;
-            this.cbAlbum.Location = new System.Drawing.Point(126, 47);
-            this.cbAlbum.Margin = new System.Windows.Forms.Padding(2);
-            this.cbAlbum.Name = "cbAlbum";
-            this.cbAlbum.Size = new System.Drawing.Size(163, 26);
-            this.cbAlbum.Sorted = true;
-            this.cbAlbum.TabIndex = 1;
-            this.cbAlbum.SelectedIndexChanged += new System.EventHandler(this.cbAlbum_SelectedIndexChanged);
-            // 
             // CreateReceiptForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::VinylMusicStore.Properties.Resources.radgradient;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(705, 503);
+            this.ClientSize = new System.Drawing.Size(940, 619);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnDel);
@@ -445,8 +437,8 @@
             this.Controls.Add(this.dgvReceipt);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(721, 542);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(955, 656);
             this.Name = "CreateReceiptForm";
             this.Text = "Составление чека";
             this.Load += new System.EventHandler(this.CreateReceiptForm_Load);

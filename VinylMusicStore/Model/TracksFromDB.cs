@@ -96,5 +96,29 @@ namespace VinylMusicStore.Model
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void AddTracks(string album, string label, string country, string track, int duration)
+        {
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(DBConnection.connectionStr))
+                {
+                    connection.Open();
+                    string sqlQuery = "call add_track(@album, @label, @country, @track, @duration)";
+                    NpgsqlCommand command = new NpgsqlCommand(sqlQuery, connection);
+                    command.Parameters.AddWithValue("album", album);
+                    command.Parameters.AddWithValue("label", label);
+                    command.Parameters.AddWithValue("country", country);
+                    command.Parameters.AddWithValue("track", track);
+                    command.Parameters.AddWithValue("duration", duration);
+
+                    int i = command.ExecuteNonQuery();
+                }
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

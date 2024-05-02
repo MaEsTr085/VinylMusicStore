@@ -180,5 +180,10 @@ namespace VinylMusicStore.Forms
         {
             this.Close();
         }
+
+        private void UsersForm_Activated(object sender, EventArgs e)
+        {
+            GetEmployees();
+        }
     }
 }

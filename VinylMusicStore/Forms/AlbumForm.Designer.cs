@@ -35,11 +35,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlbumForm));
             this.btnBack = new System.Windows.Forms.Button();
             this.dgvTracks = new System.Windows.Forms.DataGridView();
-            this.btnAddTracks = new System.Windows.Forms.Button();
             this.IdTrack = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Album = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Track = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAddTracks = new System.Windows.Forms.Button();
             this.tbLabel = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbCountry = new System.Windows.Forms.TextBox();
@@ -55,8 +55,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbGenre = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pnImage = new System.Windows.Forms.Panel();
+            this.pbAlbum = new System.Windows.Forms.PictureBox();
+            this.btnChangeImage = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTracks)).BeginInit();
             this.panel2.SuspendLayout();
+            this.pnImage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlbum)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
@@ -108,7 +114,7 @@
             this.dgvTracks.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTracks.EnableHeadersVisualStyles = false;
             this.dgvTracks.GridColor = System.Drawing.Color.Firebrick;
-            this.dgvTracks.Location = new System.Drawing.Point(361, 38);
+            this.dgvTracks.Location = new System.Drawing.Point(617, 38);
             this.dgvTracks.Name = "dgvTracks";
             this.dgvTracks.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -126,24 +132,6 @@
             this.dgvTracks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTracks.Size = new System.Drawing.Size(277, 323);
             this.dgvTracks.TabIndex = 4;
-            // 
-            // btnAddTracks
-            // 
-            this.btnAddTracks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddTracks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.btnAddTracks.FlatAppearance.BorderSize = 0;
-            this.btnAddTracks.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
-            this.btnAddTracks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(16)))), ((int)(((byte)(0)))));
-            this.btnAddTracks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddTracks.Font = new System.Drawing.Font("Comfortaa", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddTracks.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAddTracks.Location = new System.Drawing.Point(464, 367);
-            this.btnAddTracks.Name = "btnAddTracks";
-            this.btnAddTracks.Size = new System.Drawing.Size(174, 41);
-            this.btnAddTracks.TabIndex = 1;
-            this.btnAddTracks.Text = "Добавить треки";
-            this.btnAddTracks.UseVisualStyleBackColor = false;
-            this.btnAddTracks.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // IdTrack
             // 
@@ -168,6 +156,24 @@
             this.Duration.HeaderText = "Длительность (мин)";
             this.Duration.MinimumWidth = 6;
             this.Duration.Name = "Duration";
+            // 
+            // btnAddTracks
+            // 
+            this.btnAddTracks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddTracks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.btnAddTracks.FlatAppearance.BorderSize = 0;
+            this.btnAddTracks.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
+            this.btnAddTracks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(16)))), ((int)(((byte)(0)))));
+            this.btnAddTracks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddTracks.Font = new System.Drawing.Font("Comfortaa", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddTracks.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAddTracks.Location = new System.Drawing.Point(720, 367);
+            this.btnAddTracks.Name = "btnAddTracks";
+            this.btnAddTracks.Size = new System.Drawing.Size(174, 41);
+            this.btnAddTracks.TabIndex = 1;
+            this.btnAddTracks.Text = "Добавить треки";
+            this.btnAddTracks.UseVisualStyleBackColor = false;
+            this.btnAddTracks.Click += new System.EventHandler(this.btnAddTracks_Click);
             // 
             // tbLabel
             // 
@@ -237,7 +243,7 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label4.Location = new System.Drawing.Point(28, 235);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 18);
+            this.label4.Size = new System.Drawing.Size(90, 18);
             this.label4.TabIndex = 1;
             this.label4.Text = "Год релиза";
             // 
@@ -312,7 +318,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(15, 199);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 18);
+            this.label3.Size = new System.Drawing.Size(103, 18);
             this.label3.TabIndex = 1;
             this.label3.Text = "Год альбома";
             // 
@@ -342,8 +348,6 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(16)))), ((int)(((byte)(0)))));
             this.panel2.Controls.Add(this.tbGenre);
             this.panel2.Controls.Add(this.label1);
@@ -364,25 +368,89 @@
             this.panel2.Size = new System.Drawing.Size(304, 323);
             this.panel2.TabIndex = 5;
             // 
+            // pnImage
+            // 
+            this.pnImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pnImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(16)))), ((int)(((byte)(0)))));
+            this.pnImage.Controls.Add(this.pbAlbum);
+            this.pnImage.Location = new System.Drawing.Point(343, 38);
+            this.pnImage.Name = "pnImage";
+            this.pnImage.Size = new System.Drawing.Size(268, 268);
+            this.pnImage.TabIndex = 6;
+            // 
+            // pbAlbum
+            // 
+            this.pbAlbum.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pbAlbum.BackColor = System.Drawing.Color.Transparent;
+            this.pbAlbum.Location = new System.Drawing.Point(19, 19);
+            this.pbAlbum.Name = "pbAlbum";
+            this.pbAlbum.Size = new System.Drawing.Size(230, 230);
+            this.pbAlbum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAlbum.TabIndex = 1;
+            this.pbAlbum.TabStop = false;
+            // 
+            // btnChangeImage
+            // 
+            this.btnChangeImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnChangeImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.btnChangeImage.FlatAppearance.BorderSize = 0;
+            this.btnChangeImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
+            this.btnChangeImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(16)))), ((int)(((byte)(0)))));
+            this.btnChangeImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeImage.Font = new System.Drawing.Font("Comfortaa", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnChangeImage.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnChangeImage.Location = new System.Drawing.Point(390, 312);
+            this.btnChangeImage.Name = "btnChangeImage";
+            this.btnChangeImage.Size = new System.Drawing.Size(174, 49);
+            this.btnChangeImage.TabIndex = 1;
+            this.btnChangeImage.Text = "Изменить обложку";
+            this.btnChangeImage.UseVisualStyleBackColor = false;
+            this.btnChangeImage.Click += new System.EventHandler(this.btnChangeImage_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.IndianRed;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(16)))), ((int)(((byte)(0)))));
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Comfortaa", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSave.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSave.Location = new System.Drawing.Point(390, 386);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(174, 49);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "Сохранить";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // AlbumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::VinylMusicStore.Properties.Resources.radgradient;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(670, 447);
+            this.ClientSize = new System.Drawing.Size(926, 447);
+            this.Controls.Add(this.pnImage);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgvTracks);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnChangeImage);
             this.Controls.Add(this.btnAddTracks);
             this.Controls.Add(this.btnBack);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(686, 486);
             this.Name = "AlbumForm";
             this.Text = "Альбом";
+            this.Activated += new System.EventHandler(this.AlbumForm_Activated);
             this.Load += new System.EventHandler(this.AlbumForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTracks)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.pnImage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlbum)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -410,5 +478,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbGenre;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnImage;
+        private System.Windows.Forms.PictureBox pbAlbum;
+        private System.Windows.Forms.Button btnChangeImage;
+        private System.Windows.Forms.Button btnSave;
     }
 }

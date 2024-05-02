@@ -120,6 +120,7 @@
     <Compile Include="Classes\Genre.cs" />
     <Compile Include="Classes\Post.cs" />
     <Compile Include="Classes\Receipt.cs" />
+    <Compile Include="Classes\Supply.cs" />
     <Compile Include="Classes\Track.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\Verification.cs" />
@@ -141,11 +142,23 @@
     <Compile Include="Forms\AddNewInfoElementForm.Designer.cs">
       <DependentUpon>AddNewInfoElementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddTracksForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddTracksForm.Designer.cs">
+      <DependentUpon>AddTracksForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AlbumForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AlbumForm.Designer.cs">
       <DependentUpon>AlbumForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AllReceiptsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AllReceiptsForm.Designer.cs">
+      <DependentUpon>AllReceiptsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ArtistsForm.cs">
       <SubType>Form</SubType>
@@ -208,6 +221,12 @@
     <Compile Include="Forms\RecoverPasswordForm.Designer.cs">
       <DependentUpon>RecoverPasswordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddSupplyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddSupplyForm.Designer.cs">
+      <DependentUpon>AddSupplyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SupplyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,8 +266,14 @@
     <EmbeddedResource Include="Forms\AddNewInfoElementForm.resx">
       <DependentUpon>AddNewInfoElementForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddTracksForm.resx">
+      <DependentUpon>AddTracksForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AlbumForm.resx">
       <DependentUpon>AlbumForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AllReceiptsForm.resx">
+      <DependentUpon>AllReceiptsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ArtistsForm.resx">
       <DependentUpon>ArtistsForm.cs</DependentUpon>
@@ -279,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RecoverPasswordForm.resx">
       <DependentUpon>RecoverPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddSupplyForm.resx">
+      <DependentUpon>AddSupplyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SupplyForm.resx">
       <DependentUpon>SupplyForm.cs</DependentUpon>
