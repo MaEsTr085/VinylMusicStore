@@ -138,7 +138,7 @@ namespace VinylMusicStore.Forms
 
         private void btnAddNewAlbum_Click(object sender, EventArgs e)
         {
-            if (tbAlbum.Text != "" && tbArtist.Text != "" && tbLabel.Text != "" && tbYearAlbum.Text != "" && tbYearRelease.Text != "" && tbGenre.Text != "")
+            if (tbAlbum.Text != "" && tbArtist.Text != "" && tbCost.Text != "" && tbLabel.Text != "" && tbYearAlbum.Text != "" && tbYearRelease.Text != "" && tbGenre.Text != "")
             {
                 if (!(dgvTracks.Rows.Count > 1 && dgvTracks.Rows != null))
                 {
@@ -155,7 +155,7 @@ namespace VinylMusicStore.Forms
                         string[] tmp = tbLabel.Text.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
                         AlbumLabel label = new AlbumLabel(0, tmp[0], tmp[1]);
 
-                        albumsFromDB.AddNewAlbum(tbAlbum.Text, tbArtist.Text, label, int.Parse(tbYearAlbum.Text), int.Parse(tbYearRelease.Text), tbGenre.Text, picPath);
+                        albumsFromDB.AddNewAlbum(tbAlbum.Text, tbArtist.Text, decimal.Parse(tbCost.Text), label, int.Parse(tbYearAlbum.Text), int.Parse(tbYearRelease.Text), tbGenre.Text, picPath);
 
                         this.Close();
                     }
@@ -166,7 +166,7 @@ namespace VinylMusicStore.Forms
                         string[] tmp = tbLabel.Text.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
                         AlbumLabel label = new AlbumLabel(0, tmp[0], tmp[1]);
 
-                        albumsFromDB.AddNewAlbum(tbAlbum.Text, tbArtist.Text, label, int.Parse(tbYearAlbum.Text), int.Parse(tbYearRelease.Text), tbGenre.Text, picPath);
+                        albumsFromDB.AddNewAlbum(tbAlbum.Text, tbArtist.Text, decimal.Parse(tbCost.Text), label, int.Parse(tbYearAlbum.Text), int.Parse(tbYearRelease.Text), tbGenre.Text, picPath);
 
                         this.Close();
                     }
@@ -178,7 +178,7 @@ namespace VinylMusicStore.Forms
                     string[] tmp = tbLabel.Text.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
                     AlbumLabel label = new AlbumLabel(0, tmp[0], tmp[1]);
 
-                    albumsFromDB.AddNewAlbum(tbAlbum.Text, tbArtist.Text, label, int.Parse(tbYearAlbum.Text), int.Parse(tbYearRelease.Text), tbGenre.Text, picPath);
+                    albumsFromDB.AddNewAlbum(tbAlbum.Text, tbArtist.Text, decimal.Parse(tbCost.Text), label, int.Parse(tbYearAlbum.Text), int.Parse(tbYearRelease.Text), tbGenre.Text, picPath);
 
                     for (int i = 0; i < dgvTracks.RowCount - 1; i++)
                     {

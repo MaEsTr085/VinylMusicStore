@@ -110,17 +110,18 @@ namespace VinylMusicStore.Model
             }
         }
 
-        public void AddNewAlbum(string album, string artist, AlbumLabel label, int yalbum, int yrelease, string genre, string img)
+        public void AddNewAlbum(string album, string artist, decimal cost, AlbumLabel label, int yalbum, int yrelease, string genre, string img)
         {
             try
             {
                 using (NpgsqlConnection connection = new NpgsqlConnection(DBConnection.connectionStr))
                 {
                     connection.Open();
-                    string sqlQuery = "call add_new_album_and_desc(@alb, @art, @lblname, @lblcountry, @yalbum, @yrelease, @genre, @img)";
+                    string sqlQuery = "call add_new_album_and_desc(@alb, @art, @cost, @lblname, @lblcountry, @yalbum, @yrelease, @genre, @img)";
                     NpgsqlCommand command = new NpgsqlCommand(sqlQuery, connection);
                     command.Parameters.Add(new NpgsqlParameter("alb", NpgsqlTypes.NpgsqlDbType.Text) { Value = album });
                     command.Parameters.AddWithValue("art", artist);
+                    command.Parameters.Add(new NpgsqlParameter("cost", NpgsqlTypes.NpgsqlDbType.Money) { Value = cost });
                     command.Parameters.Add(new NpgsqlParameter("lblname", NpgsqlTypes.NpgsqlDbType.Text) { Value = label.LabelName });
                     command.Parameters.Add(new NpgsqlParameter("lblcountry", NpgsqlTypes.NpgsqlDbType.Text) { Value = label.Country });
                     command.Parameters.AddWithValue("yalbum", yalbum);
